@@ -5,18 +5,18 @@ Documentación funcional de DocuGPT (Nybble Group): sitio estático multi-págin
 ## Estructura
 
 ```
-index.html            Producto — resumen, cómo funciona, conceptos clave, roles
-comportamiento.html    Comportamiento — ciclo de vida del documento, planes, conectores, módulos
-medicion.html          Medición — métricas de impacto, notas técnicas, límites conocidos
+index.html            Producto — resumen, conceptos clave, roles
+comportamiento.html    Comportamiento — ciclo de vida del documento (etapas + estados), planes, conectores, módulos
+medicion.html          Medición — métricas de impacto, notas técnicas
 guia-owner.html        Guía paso a paso para el rol Owner (piloto)
 guia-user.html         Guía paso a paso para el rol User (piloto)
-assets/style.css       Estilos compartidos por todas las páginas
+assets/style.css       Estilos compartidos por todas las páginas (con soporte de modo oscuro vía prefers-color-scheme)
 assets/steps.js        Lógica del componente stepper (guías paso a paso)
 ```
 
 Cada `.html` es un documento standalone completo — no hay templating ni build step. El `<nav class="side">` está **duplicado verbatim en cada página**; la única diferencia entre copias es qué link/grupo lleva la clase `is-here`. Si agregás, quitás o renombrás una sección o página, hay que actualizar el bloque `<nav>` en **todos** los archivos `.html`, no solo en el que estás editando.
 
-Fuente del contenido: presentaciones de producto DocuGPT. No hay todavía un tracker (Jira/Confluence) del cual citar tickets — ver el aviso en `medicion.html#limites`.
+Fuente del contenido: presentaciones de producto DocuGPT. No hay todavía un tracker (Jira/Confluence) del cual citar tickets por claim — cuando exista, conviene sumar una página de "Límites conocidos" en `medicion.html` con esas fuentes.
 
 ## Publicar en GitHub Pages
 

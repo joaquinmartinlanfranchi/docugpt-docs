@@ -16,29 +16,25 @@
   NAV: duplicado verbatim en cada página del sitio.
   Única diferencia entre copias: qué <div class="grp"> y qué <a> llevan `is-here`.
   Anchors "#ancla" = sección en ESTA página. "otra.html#ancla" = otra página.
-  Ver assets/../README para el detalle del patrón antes de tocar este bloque.
+  Ver README para el detalle del patrón antes de tocar este bloque.
 -->
 <nav class="side">
   <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
 
   <div class="grp is-here">Producto</div>
   <a href="#resumen" class="is-here"><i>1</i>Resumen</a>
-  <a href="#flujo"><i>2</i>Cómo funciona</a>
-  <a href="#conceptos"><i>3</i>Conceptos clave</a>
-  <a href="#roles"><i>4</i>Roles y permisos</a>
+  <a href="#conceptos"><i>2</i>Conceptos clave</a>
+  <a href="#roles"><i>3</i>Roles y permisos</a>
 
   <div class="grp">Comportamiento</div>
-  <a href="comportamiento.html#estados"><i>5</i>Ciclo de vida del documento</a>
-  <a href="comportamiento.html#planes"><i>6</i>Organización y planes</a>
-  <a href="comportamiento.html#conectores"><i>7</i>Conectores</a>
-  <a href="comportamiento.html#modulos"><i>8</i>Módulos de negocio</a>
+  <a href="comportamiento.html#estados"><i>4</i>Ciclo de vida del documento</a>
+  <a href="comportamiento.html#planes"><i>5</i>Organización y planes</a>
+  <a href="comportamiento.html#conectores"><i>6</i>Conectores</a>
+  <a href="comportamiento.html#modulos"><i>7</i>Módulos de negocio</a>
 
   <div class="grp">Medición</div>
-  <a href="medicion.html#metricas"><i>9</i>Métricas de impacto</a>
-  <a href="medicion.html#tecnico"><i>10</i>Notas técnicas</a>
-
-  <div class="grp">Referencia</div>
-  <a href="medicion.html#limites"><i>·</i>Límites conocidos</a>
+  <a href="medicion.html#metricas"><i>8</i>Métricas de impacto</a>
+  <a href="medicion.html#tecnico"><i>9</i>Notas técnicas</a>
 
   <div class="grp">Guías</div>
   <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
@@ -62,49 +58,9 @@
 
 <div class="wrap">
 
-<!-- ============ 1/2. CÓMO FUNCIONA ============ -->
-<section id="flujo" style="--accent:var(--c-product)">
-  <div class="shead"><div><h2>Cómo funciona <span class="num">02</span></h2><p>De archivo a dato accionable: todo documento recorre las mismas cuatro etapas, sin importar si es una factura, un contrato o un CV.</p></div></div>
-  <div class="sbody">
-
-    <div class="grid g4">
-      <div class="card acc">
-        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">01</span>
-        <h5 style="margin-top:6px">Ingesta</h5>
-        <p class="mini">El documento llega por casilla de email, se sube a mano o se lee desde Drive/API.</p>
-      </div>
-      <div class="card acc">
-        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">02</span>
-        <h5 style="margin-top:6px">Clasificación</h5>
-        <p class="mini">La organización lo asocia a un <strong>tipo de contenido</strong>: el esquema de campos e instrucciones que le corresponde.</p>
-      </div>
-      <div class="card acc">
-        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">03</span>
-        <h5 style="margin-top:6px">Extracción y validación</h5>
-        <p class="mini">El motor extrae los datos, calcula un <strong>confidence score</strong> por campo y valida contra las reglas configuradas.</p>
-      </div>
-      <div class="card acc">
-        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">04</span>
-        <h5 style="margin-top:6px">Conectores</h5>
-        <p class="mini">Si el documento queda <strong>válido</strong>, se disparan las integraciones de salida hacia otros sistemas.</p>
-      </div>
-    </div>
-
-    <div class="callout c-info" style="margin-top:16px">
-      <b>Si el procesamiento falla</b>
-      Por falta de plan activo, créditos agotados o un dato requerido faltante, el documento queda «pendiente» o «en revisión» y el motivo se muestra al usuario para que lo resuelva. Detalle de estados en <a href="comportamiento.html#estados">Ciclo de vida del documento</a>.
-    </div>
-    <div class="callout c-info">
-      <b>Si un conector falla</b>
-      Por ejemplo, el sistema de destino no responde: se muestra el motivo del error y puede reintentarse una vez resuelto el problema, sin reprocesar el documento entero.
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 3. CONCEPTOS CLAVE ============ -->
+<!-- ============ 2. CONCEPTOS CLAVE ============ -->
 <section id="conceptos" style="--accent:var(--c-product)">
-  <div class="shead"><div><h2>Vocabulario del producto <span class="num">03</span></h2><p>Siete ideas que explican casi todo lo que hace DocuGPT puertas adentro.</p></div></div>
+  <div class="shead"><div><h2>Vocabulario del producto <span class="num">02</span></h2><p>Siete ideas que explican casi todo lo que hace DocuGPT puertas adentro.</p></div></div>
   <div class="sbody">
 
     <details open>
@@ -139,9 +95,9 @@
   </div>
 </section>
 
-<!-- ============ 4. ROLES Y PERMISOS ============ -->
+<!-- ============ 3. ROLES Y PERMISOS ============ -->
 <section id="roles" style="--accent:var(--c-product)">
-  <div class="shead"><div><h2>Roles y permisos <span class="num">04</span></h2><p>Tres niveles de acceso, pensados para separar la operación de plataforma de la configuración de negocio.</p></div></div>
+  <div class="shead"><div><h2>Roles y permisos <span class="num">03</span></h2><p>Tres niveles de acceso, pensados para separar la operación de plataforma de la configuración de negocio.</p></div></div>
   <div class="sbody">
 
     <div class="tw">

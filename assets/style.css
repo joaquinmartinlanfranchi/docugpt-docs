@@ -5,19 +5,42 @@
    publicada (editorial, serif + IBM Plex).
    ============================================================ */
 :root{
+  color-scheme:light dark;
   --bg:#F1F4F2; --card:#FFFFFF; --card2:#E7ECE9;
   --ink:#152520; --ink2:#55645D; --ink3:#7C8A83;
   --line:#D7DFDA; --line2:#E7ECE9;
   --nav:#FFFFFF; --nav2:#EEF2EF; --navink:#55645D;
   --brand-navy:#24457A; --brand-strong:#17325C; --brand-dot:#A8701A;
+  --onaccent:#FFFFFF;
   /* un accent por página/sección de primer nivel */
   --c-product:#24457A; --c-comportamiento:#1C6E68; --c-medicion:#6E4A9E;
   /* semánticos — no redefinir por marca */
-  --ok:#2E7D46; --okbg:#E4F1E7; --warn:#A8701A; --warnbg:#F5EBDA;
-  --tbd:#5C6670; --tbdbg:#E9ECEE; --bad:#AD3E33; --badbg:#F5E4E1;
+  --ok:#2E7D46; --okbg:#E4F1E7; --ok-line:#BFE0C9;
+  --warn:#A8701A; --warnbg:#F5EBDA; --warn-line:#F0D5A8;
+  --tbd:#5C6670; --tbdbg:#E9ECEE; --tbd-line:#D2D8D5;
+  --bad:#AD3E33; --badbg:#F5E4E1; --bad-line:#F0C6BF;
+  --info:#1D6FA5; --infobg:#E3EFF7; --info-line:#B9D6EA;
+  --violet:#6D3FA0; --violetbg:#F1EBFA; --violet-line:#D9C7F0;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --head:"Newsreader",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#12181A; --card:#1A2224; --card2:#212B2E;
+    --ink:#E8ECEA; --ink2:#A9B4B1; --ink3:#8394A1;
+    --line:#2E3A3C; --line2:#26302F;
+    --nav:#1A2224; --nav2:#212B2E; --navink:#A9B4B1;
+    --brand-navy:#8FADDA; --brand-strong:#B7CBEA; --brand-dot:#E3B366;
+    --onaccent:#101619;
+    --c-product:#8FADDA; --c-comportamiento:#5FC7BE; --c-medicion:#C7A6F0;
+    --ok:#69C489; --okbg:#1B2E22; --ok-line:#2E4A38;
+    --warn:#E3B366; --warnbg:#332A19; --warn-line:#4A3A22;
+    --tbd:#9FACB4; --tbdbg:#212B2E; --tbd-line:#333F42;
+    --bad:#E38A7D; --badbg:#332120; --bad-line:#4A322F;
+    --info:#8FC1E0; --infobg:#1B2A36; --info-line:#2C4356;
+    --violet:#C7A6F0; --violetbg:#2A2140; --violet-line:#3E3358;
+  }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -69,7 +92,7 @@ header.pagehead p{margin:0;color:var(--ink2);font-size:.95rem;max-width:64ch}
 section{scroll-margin-top:16px;margin-bottom:40px}
 .shead{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;border-radius:12px 12px 0 0;background:var(--card);border:1px solid var(--line);border-bottom:none;position:relative;overflow:hidden}
 .shead::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent,var(--brand-navy))}
-.shead .num{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.04em;color:var(--accent,var(--brand-navy));background:color-mix(in srgb,var(--accent,var(--brand-navy)) 10%,#fff);border:1px solid color-mix(in srgb,var(--accent,var(--brand-navy)) 25%,#fff);border-radius:6px;padding:3px 8px;margin-left:8px}
+.shead .num{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.04em;color:var(--accent,var(--brand-navy));background:color-mix(in srgb,var(--accent,var(--brand-navy)) 10%,var(--card));border:1px solid color-mix(in srgb,var(--accent,var(--brand-navy)) 25%,var(--card));border-radius:6px;padding:3px 8px;margin-left:8px}
 .shead h2{margin:0;font-size:1.5rem}
 .shead p{margin:5px 0 0;color:var(--ink2);font-size:.92rem}
 .sbody{background:var(--card);border:1px solid var(--line);border-radius:0 0 12px 12px;padding:22px 20px 24px}
@@ -101,19 +124,19 @@ li{margin-bottom:5px}
 
 /* ---------- BADGES (rol / actor) ---------- */
 .b{display:inline-flex;align-items:center;gap:5px;font-size:.76rem;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid;white-space:nowrap;line-height:1.7}
-.b-admin{color:#6D3FA0;background:#F1EBFA;border-color:#D9C7F0}
-.b-owner{color:#1D6FA5;background:#E3EFF7;border-color:#B9D6EA}
-.b-user{color:#2E7D46;background:#E4F1E7;border-color:#BFE0C9}
-.b-sistema{color:#5C6670;background:#E9ECEE;border-color:#D2D8D5}
+.b-admin{color:var(--violet);background:var(--violetbg);border-color:var(--violet-line)}
+.b-owner{color:var(--info);background:var(--infobg);border-color:var(--info-line)}
+.b-user{color:var(--ok);background:var(--okbg);border-color:var(--ok-line)}
+.b-sistema{color:var(--tbd);background:var(--tbdbg);border-color:var(--tbd-line)}
 
 /* ---------- STATUS PILLS (estado de un documento/registro) ---------- */
 .st{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:6px;border:1px solid;white-space:nowrap;font-family:var(--sans)}
 .st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-.st-pend{color:#5C6670;background:#E9ECEE;border-color:#D2D8D5}
-.st-proc{color:#1D6FA5;background:#E3EFF7;border-color:#B9D6EA}
-.st-ok{color:var(--ok);background:var(--okbg);border-color:#BFE0C9}
-.st-rev{color:var(--warn);background:var(--warnbg);border-color:#F0D5A8}
-.st-bad{color:var(--bad);background:var(--badbg);border-color:#F0C6BF}
+.st-pend{color:var(--tbd);background:var(--tbdbg);border-color:var(--tbd-line)}
+.st-proc{color:var(--info);background:var(--infobg);border-color:var(--info-line)}
+.st-ok{color:var(--ok);background:var(--okbg);border-color:var(--ok-line)}
+.st-rev{color:var(--warn);background:var(--warnbg);border-color:var(--warn-line)}
+.st-bad{color:var(--bad);background:var(--badbg);border-color:var(--bad-line)}
 
 /* ---------- TAGS (fuente de un claim) ---------- */
 .tag{display:inline-block;font-family:var(--mono);font-size:.7rem;padding:1px 6px;border-radius:4px;background:var(--card2);color:var(--ink2);border:1px solid var(--line);text-decoration:none;white-space:nowrap}
@@ -121,13 +144,13 @@ a.tag:hover{background:var(--line);color:var(--ink)}
 
 /* ---------- MARKS (confianza/estado del claim documentado) ---------- */
 .mark{display:inline-flex;align-items:center;gap:5px;font-family:var(--sans);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2.5px 7px;border-radius:5px;border:1px solid}
-.m-doc{color:var(--ok);background:var(--okbg);border-color:#BFE0C9}
-.m-imp{color:var(--ok);background:var(--okbg);border-color:#BFE0C9}
-.m-draft{color:var(--tbd);background:var(--tbdbg);border-color:#D2D8D5}
-.m-tbd{color:var(--tbd);background:var(--tbdbg);border-color:#D2D8D5}
-.m-open{color:var(--warn);background:var(--warnbg);border-color:#F0D5A8}
-.m-amb{color:var(--bad);background:var(--badbg);border-color:#F0C6BF}
-.m-nogo{color:var(--bad);background:var(--badbg);border-color:#F0C6BF}
+.m-doc{color:var(--ok);background:var(--okbg);border-color:var(--ok-line)}
+.m-imp{color:var(--ok);background:var(--okbg);border-color:var(--ok-line)}
+.m-draft{color:var(--tbd);background:var(--tbdbg);border-color:var(--tbd-line)}
+.m-tbd{color:var(--tbd);background:var(--tbdbg);border-color:var(--tbd-line)}
+.m-open{color:var(--warn);background:var(--warnbg);border-color:var(--warn-line)}
+.m-amb{color:var(--bad);background:var(--badbg);border-color:var(--bad-line)}
+.m-nogo{color:var(--bad);background:var(--badbg);border-color:var(--bad-line)}
 
 /* ---------- TABLES ---------- */
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card);margin-bottom:14px}
@@ -141,10 +164,10 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-sp
 /* ---------- CALLOUTS ---------- */
 .callout{border-radius:10px;padding:13px 16px;margin:0 0 14px;font-size:.9rem;border:1px solid}
 .callout>b:first-of-type{display:block;margin-bottom:3px;font-family:var(--sans);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
-.c-warn{background:var(--warnbg);border-color:#EDD3AA;color:#7A4A0B}
-.c-bad{background:var(--badbg);border-color:#F0C6BF;color:var(--bad)}
-.c-ok{background:var(--okbg);border-color:#BFE0C9;color:#1E5E33}
-.c-info{background:#E5EBF3;border-color:#C7D4E6;color:var(--brand-navy)}
+.c-warn{background:var(--warnbg);border-color:var(--warn-line);color:var(--warn)}
+.c-bad{background:var(--badbg);border-color:var(--bad-line);color:var(--bad)}
+.c-ok{background:var(--okbg);border-color:var(--ok-line);color:var(--ok)}
+.c-info{background:var(--infobg);border-color:var(--info-line);color:var(--info)}
 .c-neutral{background:var(--card2);border-color:var(--line);color:var(--ink2)}
 
 /* ---------- STEPS (stepper interactivo) ---------- */
@@ -152,7 +175,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-sp
 .steps-nav{display:flex;flex-wrap:wrap;gap:6px;padding:12px;background:var(--card2);border-bottom:1px solid var(--line2)}
 .steps-tab{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--ink2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .steps-tab:hover{border-color:var(--accent,var(--brand-navy));color:var(--ink)}
-.steps-tab.is-active{background:var(--accent,var(--brand-navy));border-color:var(--accent,var(--brand-navy));color:#fff}
+.steps-tab.is-active{background:var(--accent,var(--brand-navy));border-color:var(--accent,var(--brand-navy));color:var(--onaccent)}
 .steps-tab-n{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:rgba(0,0,0,.08);font-size:.65rem;font-family:var(--sans);font-weight:700;flex:none}
 .steps-tab.is-active .steps-tab-n{background:rgba(255,255,255,.28)}
 .steps-panel{display:none;padding:20px}
@@ -211,8 +234,8 @@ summary:hover{background:var(--card2)}
 .pager a.next{text-align:right}
 
 footer{border-top:1px solid var(--line);margin-top:24px;padding:20px 0;color:var(--ink3);font-size:.8rem}
-.toplink{position:fixed;right:20px;bottom:20px;background:var(--brand-navy);color:#fff;border-radius:999px;padding:9px 16px;font-size:.78rem;text-decoration:none;box-shadow:0 4px 14px rgba(21,37,32,.25)}
-.toplink:hover{background:var(--brand-strong);color:#fff}
+.toplink{position:fixed;right:20px;bottom:20px;background:var(--brand-navy);color:var(--onaccent);border-radius:999px;padding:9px 16px;font-size:.78rem;text-decoration:none;box-shadow:0 4px 14px rgba(21,37,32,.25)}
+.toplink:hover{background:var(--brand-strong);color:var(--onaccent)}
 
 @media(max-width:960px){
   .shell{grid-template-columns:1fr}

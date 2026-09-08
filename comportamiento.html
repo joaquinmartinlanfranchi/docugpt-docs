@@ -17,22 +17,18 @@
 
   <div class="grp">Producto</div>
   <a href="index.html#resumen"><i>1</i>Resumen</a>
-  <a href="index.html#flujo"><i>2</i>Cómo funciona</a>
-  <a href="index.html#conceptos"><i>3</i>Conceptos clave</a>
-  <a href="index.html#roles"><i>4</i>Roles y permisos</a>
+  <a href="index.html#conceptos"><i>2</i>Conceptos clave</a>
+  <a href="index.html#roles"><i>3</i>Roles y permisos</a>
 
   <div class="grp is-here">Comportamiento</div>
-  <a href="#estados" class="is-here"><i>5</i>Ciclo de vida del documento</a>
-  <a href="#planes"><i>6</i>Organización y planes</a>
-  <a href="#conectores"><i>7</i>Conectores</a>
-  <a href="#modulos"><i>8</i>Módulos de negocio</a>
+  <a href="#estados" class="is-here"><i>4</i>Ciclo de vida del documento</a>
+  <a href="#planes"><i>5</i>Organización y planes</a>
+  <a href="#conectores"><i>6</i>Conectores</a>
+  <a href="#modulos"><i>7</i>Módulos de negocio</a>
 
   <div class="grp">Medición</div>
-  <a href="medicion.html#metricas"><i>9</i>Métricas de impacto</a>
-  <a href="medicion.html#tecnico"><i>10</i>Notas técnicas</a>
-
-  <div class="grp">Referencia</div>
-  <a href="medicion.html#limites"><i>·</i>Límites conocidos</a>
+  <a href="medicion.html#metricas"><i>8</i>Métricas de impacto</a>
+  <a href="medicion.html#tecnico"><i>9</i>Notas técnicas</a>
 
   <div class="grp">Guías</div>
   <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
@@ -50,11 +46,36 @@
 
 <div class="wrap">
 
-<!-- ============ 5. CICLO DE VIDA DEL DOCUMENTO ============ -->
+<!-- ============ 4. CICLO DE VIDA DEL DOCUMENTO ============ -->
 <section id="estados" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Ciclo de vida de un documento <span class="num">05</span></h2><p>Todo documento cargado pasa por un estado general; algunos módulos de negocio lo refinan en clasificaciones propias.</p></div></div>
+  <div class="shead"><div><h2>Ciclo de vida de un documento <span class="num">04</span></h2><p>De archivo a dato accionable: las cuatro etapas que recorre todo documento, y el estado que va tomando en cada una.</p></div></div>
   <div class="sbody">
 
+    <h3>Las cuatro etapas</h3>
+    <div class="grid g4">
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">01</span>
+        <h5 style="margin-top:6px">Ingesta</h5>
+        <p class="mini">El documento llega por casilla de email, se sube a mano o se lee desde Drive/API.</p>
+      </div>
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">02</span>
+        <h5 style="margin-top:6px">Clasificación</h5>
+        <p class="mini">La organización lo asocia a un <strong>tipo de contenido</strong>: el esquema de campos e instrucciones que le corresponde.</p>
+      </div>
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">03</span>
+        <h5 style="margin-top:6px">Extracción y validación</h5>
+        <p class="mini">El motor extrae los datos, calcula un <strong>confidence score</strong> por campo y valida contra las reglas configuradas.</p>
+      </div>
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">04</span>
+        <h5 style="margin-top:6px">Conectores</h5>
+        <p class="mini">Si el documento queda <strong>válido</strong>, se disparan las integraciones de salida hacia otros sistemas.</p>
+      </div>
+    </div>
+
+    <h3>Qué estado toma el documento</h3>
     <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:22px 24px">
       <span class="st st-pend">Pendiente</span>
       <span style="color:var(--ink3)">→</span>
@@ -65,6 +86,11 @@
         <span class="st st-rev">En revisión (falta un dato)</span>
         <span class="st st-bad">Rechazado (sin plan / créditos)</span>
       </div>
+    </div>
+
+    <div class="callout c-info">
+      <b>Si el procesamiento falla</b>
+      Por falta de plan activo, créditos agotados o un dato requerido faltante, el documento queda «pendiente» o «en revisión» y el motivo se muestra al usuario para que lo resuelva.
     </div>
 
     <h3>Ejemplo: clasificación de negocio en Invoice Matching</h3>
@@ -81,9 +107,9 @@
   </div>
 </section>
 
-<!-- ============ 6. ORGANIZACIÓN Y PLANES ============ -->
+<!-- ============ 5. ORGANIZACIÓN Y PLANES ============ -->
 <section id="planes" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Organización y planes <span class="num">06</span></h2><p>Cada organización contrata un plan dimensionado según el volumen estimado de páginas a procesar en todos sus procesos.</p></div></div>
+  <div class="shead"><div><h2>Organización y planes <span class="num">05</span></h2><p>Cada organización contrata un plan dimensionado según el volumen estimado de páginas a procesar en todos sus procesos.</p></div></div>
   <div class="sbody">
 
     <p>El panel de administración muestra, por período vigente: consumo autorizado, consumo total y consumo restante. La vía más común por la que un documento queda <span class="st st-bad" style="vertical-align:middle">Rechazado</span> es, justamente, no tener plan activo o haber agotado el tope de páginas.</p>
@@ -104,9 +130,9 @@
   </div>
 </section>
 
-<!-- ============ 7. CONECTORES ============ -->
+<!-- ============ 6. CONECTORES ============ -->
 <section id="conectores" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Conectores <span class="num">07</span></h2><p>Un conector es una acción de salida — webhook o código embebido — que se dispara solo cuando el documento queda válido.</p></div></div>
+  <div class="shead"><div><h2>Conectores <span class="num">06</span></h2><p>Un conector es una acción de salida — webhook o código embebido — que se dispara solo cuando el documento queda válido.</p></div></div>
   <div class="sbody">
 
     <div class="grid g4">
@@ -124,15 +150,15 @@
   </div>
 </section>
 
-<!-- ============ 8. MÓDULOS DE NEGOCIO ============ -->
+<!-- ============ 7. MÓDULOS DE NEGOCIO ============ -->
 <section id="modulos" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Módulos de negocio <span class="num">08</span></h2><p>Paquetes reutilizables construidos sobre el motor base de DocuGPT para procesos específicos.</p></div></div>
+  <div class="shead"><div><h2>Módulos de negocio <span class="num">07</span></h2><p>Paquetes reutilizables construidos sobre el motor base de DocuGPT para procesos específicos.</p></div></div>
   <div class="sbody">
 
     <div class="flowcard">
       <div class="fh">
         <h5>Invoice Matching</h5>
-        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,#fff);padding:3px 10px;border-radius:999px">Finanzas</span>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px">Finanzas</span>
       </div>
       <div class="fb">
         <p>Concilia facturas de proveedores o contratistas contra los datos de pago esperados, y expone las diferencias que requieren revisión.</p>
@@ -150,7 +176,7 @@
     <div class="flowcard">
       <div class="fh">
         <h5>CV Matching &amp; Processor</h5>
-        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,#fff);padding:3px 10px;border-radius:999px">Talento</span>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px">Talento</span>
       </div>
       <div class="fb">
         <p>Compara la información de un CV contra los requisitos de una búsqueda para agilizar y estandarizar la revisión de candidatos.</p>
@@ -168,7 +194,7 @@
     <div class="flowcard">
       <div class="fh">
         <h5>Order to Cash</h5>
-        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,#fff);padding:3px 10px;border-radius:999px">Plugin Odoo</span>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px">Plugin Odoo</span>
       </div>
       <div class="fb">
         <p style="margin:0">Compara la factura recibida contra la recepción de bienes o servicios (remito) asociada a la orden de compra. Muestra los casos con 100% de coincidencia y los que tienen diferencias, para que el analista los revise.</p>
