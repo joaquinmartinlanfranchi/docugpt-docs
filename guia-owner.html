@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocuGPT · Guía Owner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="shell">
+
+<nav class="side">
+  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
+
+  <div class="grp">Producto</div>
+  <a href="index.html#resumen"><i>1</i>Resumen</a>
+  <a href="index.html#flujo"><i>2</i>Cómo funciona</a>
+  <a href="index.html#conceptos"><i>3</i>Conceptos clave</a>
+  <a href="index.html#roles"><i>4</i>Roles y permisos</a>
+
+  <div class="grp">Comportamiento</div>
+  <a href="comportamiento.html#estados"><i>5</i>Ciclo de vida del documento</a>
+  <a href="comportamiento.html#planes"><i>6</i>Organización y planes</a>
+  <a href="comportamiento.html#conectores"><i>7</i>Conectores</a>
+  <a href="comportamiento.html#modulos"><i>8</i>Módulos de negocio</a>
+
+  <div class="grp">Medición</div>
+  <a href="medicion.html#metricas"><i>9</i>Métricas de impacto</a>
+  <a href="medicion.html#tecnico"><i>10</i>Notas técnicas</a>
+
+  <div class="grp">Referencia</div>
+  <a href="medicion.html#limites"><i>·</i>Límites conocidos</a>
+
+  <div class="grp is-here">Guías</div>
+  <a href="guia-owner.html" class="is-here"><i>★</i>Guía · Owner</a>
+  <a href="guia-user.html"><i>★</i>Guía · User</a>
+</nav>
+
+<main>
+<header class="pagehead" style="--accent:var(--c-product)">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">DocuGPT</a> · Guía · Owner</div>
+    <h1>Guía para <span class="b b-owner" style="font-size:1.1rem;padding:3px 12px;vertical-align:middle">Owner</span></h1>
+    <p>Cómo configurar tu organización en DocuGPT: tipos de contenido, reglas de validación y conectores.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="callout c-info">
+  <b>Antes de usar esta guía</b>
+  Describe el flujo tal como está documentado a nivel de producto. Validá los pasos exactos (nombres de botones y pantallas) contra la app en vivo antes de compartirla con usuarios del piloto.
+</div>
+
+<section id="pasos" style="--accent:var(--c-product)">
+  <div class="shead"><div><h2>Configurar tu organización, paso a paso</h2><p>Cuatro tareas que como Owner hacés en lenguaje natural, sin depender de un equipo técnico.</p></div></div>
+  <div class="sbody">
+
+    <div class="steps" data-steps>
+      <div class="steps-nav" role="tablist" aria-label="Pasos de la guía Owner">
+        <button class="steps-tab is-active" role="tab" aria-selected="true" data-step="1"><span class="steps-tab-n">1</span>Tipo de contenido</button>
+        <button class="steps-tab" role="tab" aria-selected="false" data-step="2"><span class="steps-tab-n">2</span>Reglas de validación</button>
+        <button class="steps-tab" role="tab" aria-selected="false" data-step="3"><span class="steps-tab-n">3</span>Conector</button>
+        <button class="steps-tab" role="tab" aria-selected="false" data-step="4"><span class="steps-tab-n">4</span>Revisar y resolver</button>
+      </div>
+
+      <div class="steps-panel is-active" role="tabpanel" data-step-panel="1">
+        <h5>Paso 1 · Definir un tipo de contenido con Discovery</h5>
+        <ol>
+          <li>Reuní al menos 3 documentos de ejemplo del tipo que querés procesar (ej. facturas de un mismo proveedor).</li>
+          <li>Iniciá Discovery y subí esos ejemplos — el sistema infiere los campos, incluidas variables calculadas.</li>
+          <li>Revisá el esquema generado: nombres de campo, tipo de dato y las reglas de formato que detectó.</li>
+        </ol>
+      </div>
+      <div class="steps-panel" role="tabpanel" data-step-panel="2">
+        <h5>Paso 2 · Ajustar reglas de validación</h5>
+        <ol>
+          <li>Marcá qué campos son obligatorios — si faltan, el documento queda «en revisión» en vez de «válido».</li>
+          <li>Ajustá el formato esperado de cada campo en lenguaje natural (ej. «CUIT: 11 dígitos, sin guiones»).</li>
+          <li>Guardá — la regla aplica a partir de ese momento a todo documento nuevo de ese tipo de contenido.</li>
+        </ol>
+      </div>
+      <div class="steps-panel" role="tabpanel" data-step-panel="3">
+        <h5>Paso 3 · Configurar un conector de salida</h5>
+        <ol>
+          <li>Elegí el sistema de destino (Odoo, Salesforce, Make.com, NetSuite, SAP, Xero, o uno a medida).</li>
+          <li>Definí qué datos del documento se envían y en qué formato lo espera el sistema de destino.</li>
+          <li>Recordá: el conector solo se dispara cuando el documento queda <strong>válido</strong> — nunca sobre uno pendiente o en revisión.</li>
+        </ol>
+      </div>
+      <div class="steps-panel" role="tabpanel" data-step-panel="4">
+        <h5>Paso 4 · Resolver lo que queda pendiente</h5>
+        <ol>
+          <li>Si un documento queda <span class="st st-rev" style="vertical-align:middle">En revisión</span>, el motivo (campo faltante) se muestra junto al documento.</li>
+          <li>Si queda <span class="st st-bad" style="vertical-align:middle">Rechazado</span>, confirmá que la organización tenga un plan activo con páginas disponibles.</li>
+          <li>Si falla un conector, el motivo del error queda visible y podés reintentar el envío sin recargar el documento.</li>
+        </ol>
+      </div>
+
+      <div class="steps-footer">
+        <button class="steps-prev" disabled>← Anterior</button>
+        <span class="steps-progress">Paso <b data-step-current>1</b> de 4</span>
+        <button class="steps-next">Siguiente →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<div class="pager">
+  <a href="index.html#roles" style="text-align:left"><span class="d">Volver</span><span class="t">← Roles y permisos</span></a>
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <p>© Nybble Group 2026 — Confidencial y de uso interno.</p>
+  </div>
+</footer>
+
+</main>
+</div><!-- /shell -->
+<a class="toplink" href="#pasos">↑ Arriba</a>
+<script src="assets/steps.js"></script>
+</body>
+</html>

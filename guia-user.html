@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocuGPT · Guía User</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="shell">
+
+<nav class="side">
+  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
+
+  <div class="grp">Producto</div>
+  <a href="index.html#resumen"><i>1</i>Resumen</a>
+  <a href="index.html#flujo"><i>2</i>Cómo funciona</a>
+  <a href="index.html#conceptos"><i>3</i>Conceptos clave</a>
+  <a href="index.html#roles"><i>4</i>Roles y permisos</a>
+
+  <div class="grp">Comportamiento</div>
+  <a href="comportamiento.html#estados"><i>5</i>Ciclo de vida del documento</a>
+  <a href="comportamiento.html#planes"><i>6</i>Organización y planes</a>
+  <a href="comportamiento.html#conectores"><i>7</i>Conectores</a>
+  <a href="comportamiento.html#modulos"><i>8</i>Módulos de negocio</a>
+
+  <div class="grp">Medición</div>
+  <a href="medicion.html#metricas"><i>9</i>Métricas de impacto</a>
+  <a href="medicion.html#tecnico"><i>10</i>Notas técnicas</a>
+
+  <div class="grp">Referencia</div>
+  <a href="medicion.html#limites"><i>·</i>Límites conocidos</a>
+
+  <div class="grp is-here">Guías</div>
+  <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
+  <a href="guia-user.html" class="is-here"><i>★</i>Guía · User</a>
+</nav>
+
+<main>
+<header class="pagehead" style="--accent:var(--c-product)">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">DocuGPT</a> · Guía · User</div>
+    <h1>Guía para <span class="b b-user" style="font-size:1.1rem;padding:3px 12px;vertical-align:middle">User</span></h1>
+    <p>Cómo cargar un documento en DocuGPT y entender qué significa cada estado.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="callout c-info">
+  <b>Antes de usar esta guía</b>
+  Describe el flujo tal como está documentado a nivel de producto. Validá los pasos exactos (nombres de botones y pantallas) contra la app en vivo antes de compartirla con usuarios del piloto.
+</div>
+
+<section id="pasos" style="--accent:var(--c-product)">
+  <div class="shead"><div><h2>Cargar y consultar un documento, paso a paso</h2><p>Lo que podés hacer como User: cargar documentos y ver su estado. La configuración la maneja el Owner de tu organización.</p></div></div>
+  <div class="sbody">
+
+    <div class="steps" data-steps>
+      <div class="steps-nav" role="tablist" aria-label="Pasos de la guía User">
+        <button class="steps-tab is-active" role="tab" aria-selected="true" data-step="1"><span class="steps-tab-n">1</span>Cargar</button>
+        <button class="steps-tab" role="tab" aria-selected="false" data-step="2"><span class="steps-tab-n">2</span>Consultar estado</button>
+        <button class="steps-tab" role="tab" aria-selected="false" data-step="3"><span class="steps-tab-n">3</span>Si algo falla</button>
+      </div>
+
+      <div class="steps-panel is-active" role="tabpanel" data-step-panel="1">
+        <h5>Paso 1 · Cargar un documento</h5>
+        <ol>
+          <li>Subilo a mano desde DocuGPT, enviálo a la casilla de email de tu organización, o dejá que se lea automáticamente desde Drive/API si tu Owner lo configuró así.</li>
+          <li>Formatos admitidos: PDF, PNG, JPG.</li>
+          <li>El documento arranca en estado <span class="st st-pend" style="vertical-align:middle">Pendiente</span> y pasa a <span class="st st-proc" style="vertical-align:middle">Procesando</span> automáticamente.</li>
+        </ol>
+      </div>
+      <div class="steps-panel" role="tabpanel" data-step-panel="2">
+        <h5>Paso 2 · Consultar el estado</h5>
+        <ol>
+          <li><span class="st st-ok" style="vertical-align:middle">Válido</span> — el documento se procesó bien y ya disparó los conectores configurados.</li>
+          <li><span class="st st-rev" style="vertical-align:middle">En revisión</span> — falta un dato requerido; el motivo se muestra junto al documento.</li>
+          <li><span class="st st-bad" style="vertical-align:middle">Rechazado</span> — normalmente por falta de plan activo o créditos agotados en tu organización.</li>
+        </ol>
+      </div>
+      <div class="steps-panel" role="tabpanel" data-step-panel="3">
+        <h5>Paso 3 · Qué hacer si el documento no queda válido</h5>
+        <ol>
+          <li>Leé el motivo que se muestra junto al documento — te dice exactamente qué falta o qué falló.</li>
+          <li>Si el motivo es de configuración (plan, créditos, reglas de validación), avisale al <span class="b b-owner">Owner</span> de tu organización — vos no podés modificar esos ajustes.</li>
+          <li>Si falta un dato del propio documento, corregilo y volvé a cargarlo.</li>
+        </ol>
+      </div>
+
+      <div class="steps-footer">
+        <button class="steps-prev" disabled>← Anterior</button>
+        <span class="steps-progress">Paso <b data-step-current>1</b> de 3</span>
+        <button class="steps-next">Siguiente →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<div class="pager">
+  <a href="index.html#roles" style="text-align:left"><span class="d">Volver</span><span class="t">← Roles y permisos</span></a>
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <p>© Nybble Group 2026 — Confidencial y de uso interno.</p>
+  </div>
+</footer>
+
+</main>
+</div><!-- /shell -->
+<a class="toplink" href="#pasos">↑ Arriba</a>
+<script src="assets/steps.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocuGPT · Medición</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="shell">
+
+<nav class="side">
+  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
+
+  <div class="grp">Producto</div>
+  <a href="index.html#resumen"><i>1</i>Resumen</a>
+  <a href="index.html#flujo"><i>2</i>Cómo funciona</a>
+  <a href="index.html#conceptos"><i>3</i>Conceptos clave</a>
+  <a href="index.html#roles"><i>4</i>Roles y permisos</a>
+
+  <div class="grp">Comportamiento</div>
+  <a href="comportamiento.html#estados"><i>5</i>Ciclo de vida del documento</a>
+  <a href="comportamiento.html#planes"><i>6</i>Organización y planes</a>
+  <a href="comportamiento.html#conectores"><i>7</i>Conectores</a>
+  <a href="comportamiento.html#modulos"><i>8</i>Módulos de negocio</a>
+
+  <div class="grp is-here">Medición</div>
+  <a href="#metricas" class="is-here"><i>9</i>Métricas de impacto</a>
+  <a href="#tecnico"><i>10</i>Notas técnicas</a>
+
+  <div class="grp">Referencia</div>
+  <a href="#limites"><i>·</i>Límites conocidos</a>
+
+  <div class="grp">Guías</div>
+  <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
+  <a href="guia-user.html"><i>★</i>Guía · User</a>
+</nav>
+
+<main>
+<header class="pagehead" style="--accent:var(--c-medicion)">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">DocuGPT</a> · Medición</div>
+    <h1>Medición</h1>
+    <p>Qué medimos hoy en los pilotos activos, qué indicadores permite medir el framework en cualquier proceso nuevo, notas para equipos técnicos y los límites conocidos de esta versión.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 9. MÉTRICAS DE IMPACTO ============ -->
+<section id="metricas" style="--accent:var(--c-medicion)">
+  <div class="shead"><div><h2>Métricas de impacto <span class="num">09</span></h2><p>Dos pilotos ya corriendo puertas adentro de Nybble Group, con números propios.</p></div></div>
+  <div class="sbody">
+
+    <div class="grid g2">
+      <div class="stat">
+        <div class="v">−89%</div>
+        <div class="k">Tiempo de procesamiento de facturas</div>
+        <div class="n">Antes: 18 h/mes · Después: 2 h/mes</div>
+      </div>
+      <div class="stat">
+        <div class="v">−87%</div>
+        <div class="k">Tiempo de preparación de CVs</div>
+        <div class="n">Antes: 7.5 h/mes · Después: 1 h/mes</div>
+      </div>
+    </div>
+
+    <h3>Indicadores que el framework permite medir en cualquier proceso nuevo</h3>
+    <ul>
+      <li><strong>Volumen procesado por FTE</strong> — capacidad de procesamiento por persona, sin sumar headcount.</li>
+      <li><strong>Tiempo por documento</strong> — desde la recepción hasta el dato extraído (objetivo: −85% vs. proceso manual).</li>
+      <li><strong>Straight-through processing</strong> — % de documentos procesados sin intervención humana.</li>
+      <li><strong>Precisión de extracción</strong> — campo a campo contra validación humana (objetivo &gt;95%).</li>
+      <li><strong>Tasa de reproceso</strong> — documentos que requieren corrección por error de carga manual.</li>
+      <li><strong>Costo por documento</strong> — personas, infraestructura y tecnología combinados.</li>
+      <li><strong>Time-to-scale</strong> — tiempo para escalar capacidad en picos de demanda, sin contratar.</li>
+      <li><strong>ROI y payback</strong> — ahorro acumulado vs. inversión inicial de implementación y licencia.</li>
+      <li><strong>Cobertura de tipos de documento</strong> — nuevos tipos soportados sin desarrollo a medida.</li>
+      <li><strong>Satisfacción del usuario</strong> — de quienes dejaron la carga manual y hoy validan/supervisan.</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ============ 10. NOTAS TÉCNICAS ============ -->
+<section id="tecnico" style="--accent:var(--c-medicion)">
+  <div class="shead"><div><h2>Notas técnicas <span class="num">10</span></h2><p>Framework API-first, pensado para integrarse con otros servicios y con agentes de IA propios.</p></div></div>
+  <div class="sbody">
+
+    <div class="grid g4">
+      <div class="card acc"><h5>Arquitectura</h5><p class="mini">Tres capas: API (Express), frontend (Next.js) y un SDK TypeScript autogenerado a partir de la API.</p></div>
+      <div class="card acc"><h5>Datos</h5><p class="mini">Persistencia en PostgreSQL vía Prisma, sobre infraestructura en ECS.</p></div>
+      <div class="card acc"><h5>Multi-tenant</h5><p class="mini">Entornos separados de desarrollo (-de) y producción por cada organización.</p></div>
+      <div class="card acc"><h5>OCR / IA</h5><p class="mini">Azure como motor por defecto; Gemini u otro LLM avanzado configurable para manuscritos.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ REFERENCIA: LÍMITES CONOCIDOS ============ -->
+<section id="limites" style="--accent:var(--c-medicion)">
+  <div class="shead"><div><h2>Límites conocidos</h2><p>Un único lugar para responder «qué no funciona todavía» — se completa a medida que el equipo lo consolide.</p></div></div>
+  <div class="sbody">
+
+    <div class="callout c-neutral">
+      <b>Sin backlog consolidado</b>
+      Esta página todavía no tiene una lista de bugs/límites conocidos confirmada por el equipo — el contenido de este sitio proviene de las presentaciones de producto, no de un tracker con tickets. <span class="mark m-tbd">TBD</span> hasta que se defina una fuente (Jira/Confluence) y se pueda linkear cada límite a su ticket.
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<div class="pager">
+  <a class="prev" href="comportamiento.html#modulos"><span class="d">Anterior</span><span class="t">← Comportamiento</span></a>
+  <a class="next" href="index.html#resumen" style="text-align:right"><span class="d">Volver</span><span class="t">Producto →</span></a>
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <p>© Nybble Group 2026 — Confidencial y de uso interno. Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></p>
+  </div>
+</footer>
+
+</main>
+</div><!-- /shell -->
+<a class="toplink" href="#metricas">↑ Arriba</a>
+</body>
+</html>

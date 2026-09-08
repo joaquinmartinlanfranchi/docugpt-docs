@@ -1,616 +1,177 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DocuGPT · Guía funcional</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-
-  :root{color-scheme:light}
-  img{max-width:100%}
-  [hidden]:not([hidden=until-found i]){display:none!important}
-
-  :root{
-    --bg:#F1F4F2;
-    --surface:#FFFFFF;
-    --surface-2:#E7ECE9;
-    --ink:#152520;
-    --ink-soft:#55645D;
-    --line:#D7DFDA;
-    --accent:#24457A;
-    --accent-strong:#17325C;
-    --accent-tint:#E5EBF3;
-    --ok:#2E7D46;
-    --ok-tint:#E4F1E7;
-    --warn:#A8701A;
-    --warn-tint:#F5EBDA;
-    --danger:#AD3E33;
-    --danger-tint:#F5E4E1;
-    --neutral:#5C6670;
-    --neutral-tint:#E9ECEE;
-    --shadow: 0 1px 2px rgba(21,37,32,.05), 0 8px 24px -12px rgba(21,37,32,.14);
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
-    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#12181A;
-      --surface:#1A2224;
-      --surface-2:#212B2E;
-      --ink:#E8ECEA;
-      --ink-soft:#A9B4B1;
-      --line:#2E3A3C;
-      --accent:#8FADDA;
-      --accent-strong:#B7CBEA;
-      --accent-tint:#1E2A3A;
-      --ok:#69C489;
-      --ok-tint:#1B2E22;
-      --warn:#E3B366;
-      --warn-tint:#332A19;
-      --danger:#E38A7D;
-      --danger-tint:#332120;
-      --neutral:#9FACB4;
-      --neutral-tint:#212B2E;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#12181A;
-    --surface:#1A2224;
-    --surface-2:#212B2E;
-    --ink:#E8ECEA;
-    --ink-soft:#A9B4B1;
-    --line:#2E3A3C;
-    --accent:#8FADDA;
-    --accent-strong:#B7CBEA;
-    --accent-tint:#1E2A3A;
-    --ok:#69C489;
-    --ok-tint:#1B2E22;
-    --warn:#E3B366;
-    --warn-tint:#332A19;
-    --danger:#E38A7D;
-    --danger-tint:#332120;
-    --neutral:#9FACB4;
-    --neutral-tint:#212B2E;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
-
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:var(--accent);}
-  a:hover{color:var(--accent-strong);}
-  a:focus-visible, button:focus-visible, .navlink:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px;}
-
-  h1,h2,h3{font-family:var(--serif); font-weight:600; color:var(--ink); text-wrap:balance; margin:0;}
-  code, .mono{font-family:var(--mono);}
-
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.11em;
-    text-transform:uppercase;
-    color:var(--accent);
-    font-weight:500;
-  }
-
-  /* ---------- Top scan bar + header ---------- */
-  .scanbar{height:4px; background:linear-gradient(90deg, var(--accent) 0%, var(--ok) 50%, var(--accent) 100%); opacity:.8;}
-
-  header.site{
-    background:var(--surface);
-    border-bottom:1px solid var(--line);
-    position:sticky; top:0; z-index:30;
-  }
-  .site-inner{
-    max-width:1180px; margin:0 auto; padding:18px 28px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-  }
-  .brand{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
-  .brand-mark{font-family:var(--serif); font-weight:700; font-size:1.5rem; letter-spacing:-.01em;}
-  .brand-tag{color:var(--ink-soft); font-size:.86rem;}
-  .brand-org{color:var(--ink-soft); font-size:.8rem; font-family:var(--mono); white-space:nowrap;}
-
-  /* mobile nav toggle */
-  #navtoggle{display:none;}
-  .navtoggle-label{
-    display:none; font-family:var(--mono); font-size:.78rem; letter-spacing:.06em;
-    border:1px solid var(--line); background:var(--surface-2); color:var(--ink);
-    padding:8px 12px; border-radius:8px; cursor:pointer; text-transform:uppercase;
-  }
-
-  /* ---------- Layout ---------- */
-  .shell{max-width:1180px; margin:0 auto; display:flex; gap:44px; padding:0 28px;}
-  .sidebar{
-    width:230px; flex:none; padding:32px 0 60px;
-    position:sticky; top:65px; align-self:flex-start;
-    max-height:calc(100vh - 65px); overflow-y:auto;
-  }
-  .sidebar-title{font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 10px;}
-  .navlist{list-style:none; margin:0 0 26px; padding:0; border-left:1px solid var(--line);}
-  .navlist a{
-    display:block; padding:6px 0 6px 16px; margin-left:-1px; border-left:1px solid transparent;
-    color:var(--ink-soft); text-decoration:none; font-size:.92rem;
-  }
-  .navlist a:hover{color:var(--ink);}
-  .navlist a.current{color:var(--accent); border-left-color:var(--accent); font-weight:600;}
-
-  main{flex:1; min-width:0; padding:44px 0 90px; max-width:760px;}
-
-  section{padding-bottom:56px; margin-bottom:56px; border-bottom:1px solid var(--line);}
-  section:last-of-type{border-bottom:none;}
-  section h2{font-size:1.62rem; margin-bottom:4px;}
-  section > .eyebrow{display:block; margin-bottom:8px;}
-  .lede{color:var(--ink-soft); font-size:1.05rem; margin-top:14px; max-width:64ch;}
-  p{margin:0 0 14px; max-width:66ch;}
-  p:last-child{margin-bottom:0;}
-
-  /* ---------- Hero ---------- */
-  .hero{padding-top:40px;}
-  .hero h1{font-size:2.7rem; line-height:1.08;}
-  .hero .lede{font-size:1.15rem; max-width:60ch;}
-  .factstrip{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
-    border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-top:28px;
-  }
-  .fact{background:var(--surface); padding:14px 16px;}
-  .fact .k{font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); display:block; margin-bottom:6px;}
-  .fact .v{font-size:.92rem; font-weight:600;}
-  @media (max-width:640px){ .factstrip{grid-template-columns:repeat(2,1fr);} }
-
-  /* ---------- Flow diagram ---------- */
-  .flow{display:flex; align-items:stretch; gap:0; margin:28px 0 18px; flex-wrap:wrap;}
-  .flow-step{
-    flex:1 1 200px; background:var(--surface); border:1px solid var(--line); border-radius:10px;
-    padding:18px 18px 16px; position:relative; box-shadow:var(--shadow);
-  }
-  .flow-step + .flow-step{margin-left:26px;}
-  .flow-step + .flow-step::before{
-    content:""; position:absolute; left:-26px; top:50%; width:26px; height:1px; background:var(--line);
-  }
-  .flow-step + .flow-step::after{
-    content:"→"; position:absolute; left:-23px; top:50%; transform:translateY(-58%); color:var(--ink-soft); font-size:.9rem;
-  }
-  @media (max-width:760px){
-    .flow{flex-direction:column;}
-    .flow-step + .flow-step{margin-left:0; margin-top:26px;}
-    .flow-step + .flow-step::before{left:50%; top:-26px; width:1px; height:26px; transform:translateX(-50%);}
-    .flow-step + .flow-step::after{left:50%; top:-22px; transform:translate(-50%,0) rotate(90deg);}
-  }
-  .flow-step .num{font-family:var(--mono); font-size:.72rem; color:var(--accent); font-weight:600;}
-  .flow-step h3{font-size:1.02rem; margin:6px 0 6px; font-family:var(--sans); font-weight:600;}
-  .flow-step p{font-size:.88rem; color:var(--ink-soft); margin:0;}
-
-  .callout{
-    border:1px dashed var(--line); border-radius:10px; padding:14px 16px; margin-top:8px;
-    background:var(--surface-2); font-size:.9rem; color:var(--ink-soft);
-  }
-  .callout strong{color:var(--ink); font-weight:600;}
-  .callout + .callout{margin-top:12px;}
-
-  /* ---------- Concept / module cards ---------- */
-  .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:22px;}
-  @media (max-width:600px){ .cards{grid-template-columns:1fr;} }
-  .card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px 20px; box-shadow:var(--shadow);}
-  .card h3{font-size:1rem; font-family:var(--sans); font-weight:600; margin-bottom:6px;}
-  .card p{font-size:.89rem; color:var(--ink-soft); margin:0;}
-
-  /* ---------- Tables ---------- */
-  .tablewrap{overflow-x:auto; margin-top:22px; border:1px solid var(--line); border-radius:10px;}
-  table{width:100%; border-collapse:collapse; font-size:.92rem; background:var(--surface);}
-  th,td{text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); vertical-align:top;}
-  thead th{
-    font-family:var(--mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.07em;
-    color:var(--ink-soft); background:var(--surface-2); font-weight:600;
-  }
-  tbody tr:last-child td{border-bottom:none;}
-  td.num, th.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap;}
-
-  /* ---------- Chips / states ---------- */
-  .chip{
-    display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:.74rem;
-    font-weight:600; padding:4px 10px; border-radius:999px; white-space:nowrap;
-  }
-  .chip.ok{background:var(--ok-tint); color:var(--ok);}
-  .chip.warn{background:var(--warn-tint); color:var(--warn);}
-  .chip.danger{background:var(--danger-tint); color:var(--danger);}
-  .chip.neutral{background:var(--neutral-tint); color:var(--neutral);}
-
-  .statechain{display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin:22px 0 10px;}
-  .statechain .arrow{color:var(--ink-soft); font-size:.9rem;}
-  .statebranch{display:flex; flex-direction:column; gap:8px;}
-
-  /* ---------- Module blocks ---------- */
-  .module{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:26px 28px; margin-top:24px; box-shadow:var(--shadow);}
-  .module-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:6px;}
-  .module-head h3{font-family:var(--serif); font-size:1.25rem;}
-  .module-tag{font-family:var(--mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); background:var(--accent-tint); padding:3px 10px; border-radius:999px;}
-  .module-flow{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:18px 0;}
-  @media (max-width:640px){ .module-flow{grid-template-columns:1fr;} }
-  .mstep{border:1px solid var(--line); border-radius:8px; padding:12px 14px; background:var(--surface-2);}
-  .mstep .num{font-family:var(--mono); font-size:.68rem; color:var(--accent); font-weight:600;}
-  .mstep strong{display:block; font-size:.87rem; margin:4px 0 3px;}
-  .mstep span{font-size:.83rem; color:var(--ink-soft);}
-  .impact{
-    display:flex; gap:24px; margin-top:18px; padding-top:18px; border-top:1px solid var(--line); flex-wrap:wrap;
-  }
-  .impact .num{font-family:var(--serif); font-weight:700; font-size:1.9rem; color:var(--accent); line-height:1;}
-  .impact .lbl{font-size:.8rem; color:var(--ink-soft); margin-top:4px; max-width:22ch;}
-
-  /* ---------- Stat tiles (impact section) ---------- */
-  .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:22px;}
-  @media (max-width:600px){ .stats{grid-template-columns:1fr;} }
-  .stat{background:var(--accent-tint); border:1px solid var(--line); border-radius:12px; padding:22px 24px;}
-  .stat .num{font-family:var(--serif); font-weight:700; font-size:2.4rem; color:var(--accent); line-height:1;}
-  .stat .sub{font-size:.85rem; color:var(--ink-soft); margin-top:8px;}
-  .stat .detail{font-family:var(--mono); font-size:.76rem; color:var(--ink-soft); margin-top:10px; display:flex; gap:14px; flex-wrap:wrap;}
-
-  ul.kpi{list-style:none; margin:22px 0 0; padding:0; display:grid; gap:10px;}
-  ul.kpi li{
-    display:flex; gap:12px; padding:12px 14px; background:var(--surface); border:1px solid var(--line);
-    border-radius:8px; font-size:.9rem;
-  }
-  ul.kpi li .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); margin-top:7px; flex:none;}
-
-  /* footer */
-  footer.site{border-top:1px solid var(--line); padding:30px 28px 60px; background:var(--surface);}
-  .footer-inner{max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; color:var(--ink-soft); font-size:.82rem;}
-  .footer-inner a{color:var(--ink-soft); text-decoration:underline;}
-
-  @media (max-width:900px){
-    .shell{flex-direction:column; gap:0; padding:0;}
-    .sidebar{
-      width:100%; position:sticky; top:57px; padding:10px 0; max-height:none;
-      background:var(--surface); border-bottom:1px solid var(--line); z-index:20;
-      display:none;
-    }
-    #navtoggle:checked ~ .shell .sidebar{display:block;}
-    .navtoggle-label{display:inline-block;}
-    .sidebar-title{padding-left:20px;}
-    .navlist{
-      border-left:none; display:flex; overflow-x:auto; gap:4px; padding:0 20px 4px; margin-bottom:0;
-      -webkit-overflow-scrolling:touch;
-    }
-    .navlist a{border-left:none; white-space:nowrap; padding:8px 12px; border-radius:999px; background:var(--surface-2);}
-    .navlist a.current{background:var(--accent-tint);}
-    main{padding-left:20px; padding-right:20px; max-width:none;}
-    .site-inner{padding:14px 20px;}
-  }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<div class="shell">
 
-<input type="checkbox" id="navtoggle">
+<!--
+  NAV: duplicado verbatim en cada página del sitio.
+  Única diferencia entre copias: qué <div class="grp"> y qué <a> llevan `is-here`.
+  Anchors "#ancla" = sección en ESTA página. "otra.html#ancla" = otra página.
+  Ver assets/../README para el detalle del patrón antes de tocar este bloque.
+-->
+<nav class="side">
+  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
 
-<div class="scanbar" aria-hidden="true"></div>
-<header class="site">
-  <div class="site-inner">
-    <div class="brand">
-      <span class="brand-mark">DocuGPT</span>
-      <span class="brand-tag">Documentación funcional</span>
-    </div>
-    <div style="display:flex; align-items:center; gap:14px;">
-      <span class="brand-org">Nybble&nbsp;Group</span>
-      <label class="navtoggle-label" for="navtoggle">Índice ▾</label>
+  <div class="grp is-here">Producto</div>
+  <a href="#resumen" class="is-here"><i>1</i>Resumen</a>
+  <a href="#flujo"><i>2</i>Cómo funciona</a>
+  <a href="#conceptos"><i>3</i>Conceptos clave</a>
+  <a href="#roles"><i>4</i>Roles y permisos</a>
+
+  <div class="grp">Comportamiento</div>
+  <a href="comportamiento.html#estados"><i>5</i>Ciclo de vida del documento</a>
+  <a href="comportamiento.html#planes"><i>6</i>Organización y planes</a>
+  <a href="comportamiento.html#conectores"><i>7</i>Conectores</a>
+  <a href="comportamiento.html#modulos"><i>8</i>Módulos de negocio</a>
+
+  <div class="grp">Medición</div>
+  <a href="medicion.html#metricas"><i>9</i>Métricas de impacto</a>
+  <a href="medicion.html#tecnico"><i>10</i>Notas técnicas</a>
+
+  <div class="grp">Referencia</div>
+  <a href="medicion.html#limites"><i>·</i>Límites conocidos</a>
+
+  <div class="grp">Guías</div>
+  <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
+  <a href="guia-user.html"><i>★</i>Guía · User</a>
+</nav>
+
+<main>
+<header class="hero" id="resumen">
+  <div class="wrap">
+    <div class="kicker">Documentación funcional · v1</div>
+    <h1>DocuGPT</h1>
+    <p class="sub">Plataforma multi-tenant de procesamiento inteligente de documentos: combina OCR tradicional con IA generativa para leer, interpretar y transformar facturas, contratos, pólizas, resúmenes bancarios, CVs y cualquier otro documento de negocio en datos estructurados y accionables, que luego se envían automáticamente a otros sistemas mediante conectores configurables. <b>La configuración se define en lenguaje natural</b>, pensada para que la use y mantenga un usuario de negocio, sin intervención técnica constante.</p>
+    <div class="metabar">
+      <span>Entrada<b>Email · API · Drive</b></span>
+      <span>Salida<b>JSON + conectores</b></span>
+      <span>OCR<b>Azure (Gemini p/ manuscritos)</b></span>
+      <span>Formatos<b>PDF · PNG · JPG</b></span>
     </div>
   </div>
 </header>
 
-<div class="shell">
-  <aside class="sidebar" aria-label="Índice de contenidos">
-    <p class="sidebar-title">En esta página</p>
-    <ul class="navlist" id="navlist">
-      <li><a href="#resumen" class="navlink">Resumen</a></li>
-      <li><a href="#flujo" class="navlink">Cómo funciona</a></li>
-      <li><a href="#conceptos" class="navlink">Conceptos clave</a></li>
-      <li><a href="#roles" class="navlink">Roles y permisos</a></li>
-      <li><a href="#estados" class="navlink">Ciclo de vida del documento</a></li>
-      <li><a href="#planes" class="navlink">Organización y planes</a></li>
-      <li><a href="#conectores" class="navlink">Conectores</a></li>
-      <li><a href="#modulos" class="navlink">Módulos de negocio</a></li>
-      <li><a href="#metricas" class="navlink">Métricas de impacto</a></li>
-      <li><a href="#tecnico" class="navlink">Notas técnicas</a></li>
-    </ul>
-  </aside>
+<div class="wrap">
 
-  <main>
-    <section id="resumen" class="hero">
-      <span class="eyebrow">Guía funcional · v1</span>
-      <h1>DocuGPT</h1>
-      <p class="lede">Plataforma multi-tenant de procesamiento inteligente de documentos: combina OCR tradicional con IA generativa para leer, interpretar y transformar facturas, contratos, pólizas, resúmenes bancarios, CVs y cualquier otro documento de negocio en datos estructurados y accionables, que luego se envían automáticamente a otros sistemas mediante conectores configurables.</p>
-      <p style="margin-top:14px;">La configuración —tipos de documento, reglas de validación y conectores— se define en lenguaje natural, pensada para que la use y mantenga un usuario de negocio, sin intervención técnica constante.</p>
+<!-- ============ 1/2. CÓMO FUNCIONA ============ -->
+<section id="flujo" style="--accent:var(--c-product)">
+  <div class="shead"><div><h2>Cómo funciona <span class="num">02</span></h2><p>De archivo a dato accionable: todo documento recorre las mismas cuatro etapas, sin importar si es una factura, un contrato o un CV.</p></div></div>
+  <div class="sbody">
 
-      <div class="factstrip">
-        <div class="fact"><span class="k">Entrada</span><span class="v">Email · API · Drive</span></div>
-        <div class="fact"><span class="k">Salida</span><span class="v">JSON + conectores</span></div>
-        <div class="fact"><span class="k">OCR</span><span class="v">Azure (Gemini p/ manuscritos)</span></div>
-        <div class="fact"><span class="k">Formatos</span><span class="v">PDF · PNG · JPG</span></div>
+    <div class="grid g4">
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">01</span>
+        <h5 style="margin-top:6px">Ingesta</h5>
+        <p class="mini">El documento llega por casilla de email, se sube a mano o se lee desde Drive/API.</p>
       </div>
-    </section>
-
-    <section id="flujo">
-      <span class="eyebrow">Cómo funciona</span>
-      <h2>De archivo a dato accionable</h2>
-      <p class="lede">Todo documento recorre las mismas cuatro etapas, sin importar si es una factura, un contrato o un CV.</p>
-
-      <div class="flow">
-        <div class="flow-step">
-          <span class="num">01</span>
-          <h3>Ingesta</h3>
-          <p>El documento llega por casilla de email, se sube a mano o se lee desde Drive/API.</p>
-        </div>
-        <div class="flow-step">
-          <span class="num">02</span>
-          <h3>Clasificación</h3>
-          <p>La organización lo asocia a un <strong>tipo de contenido</strong>: el esquema de campos e instrucciones que le corresponde.</p>
-        </div>
-        <div class="flow-step">
-          <span class="num">03</span>
-          <h3>Extracción y validación</h3>
-          <p>El motor extrae los datos, calcula un <strong>confidence score</strong> por campo y valida contra las reglas configuradas.</p>
-        </div>
-        <div class="flow-step">
-          <span class="num">04</span>
-          <h3>Conectores</h3>
-          <p>Si el documento queda <strong>válido</strong>, se disparan las integraciones de salida hacia otros sistemas.</p>
-        </div>
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">02</span>
+        <h5 style="margin-top:6px">Clasificación</h5>
+        <p class="mini">La organización lo asocia a un <strong>tipo de contenido</strong>: el esquema de campos e instrucciones que le corresponde.</p>
       </div>
-
-      <div class="callout"><strong>Si el procesamiento falla</strong> — por falta de plan activo, créditos agotados o un dato requerido faltante— el documento queda «pendiente» o «en revisión» y el motivo se muestra al usuario para que lo resuelva.</div>
-      <div class="callout"><strong>Si un conector falla</strong> —por ejemplo, el sistema de destino no responde— se muestra el motivo del error y puede reintentarse una vez resuelto el problema, sin reprocesar el documento entero.</div>
-    </section>
-
-    <section id="conceptos">
-      <span class="eyebrow">Vocabulario del producto</span>
-      <h2>Conceptos clave</h2>
-      <p class="lede">Siete ideas que explican casi todo lo que hace DocuGPT puertas adentro.</p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Tenant / Organización</h3>
-          <p>Base de datos aislada por empresa. Una misma empresa puede tener varios tenants, con entornos separados de desarrollo y producción.</p>
-        </div>
-        <div class="card">
-          <h3>Tipo de contenido</h3>
-          <p>Define los campos a extraer y las reglas de formato de cada variable — por ejemplo, un CUIT a 11 dígitos sin guiones.</p>
-        </div>
-        <div class="card">
-          <h3>Discovery</h3>
-          <p>Genera el esquema de un tipo de contenido en minutos a partir de al menos 3 documentos de ejemplo, infiriendo incluso variables calculadas.</p>
-        </div>
-        <div class="card">
-          <h3>Conector</h3>
-          <p>Acción posterior al procesamiento (webhook o código embebido) que solo se ejecuta si el documento quedó válido.</p>
-        </div>
-        <div class="card">
-          <h3>Confidence score</h3>
-          <p>Certeza predictiva del modelo sobre cada dato extraído — orienta qué campos conviene revisar a mano.</p>
-        </div>
-        <div class="card">
-          <h3>Plan / Consumo</h3>
-          <p>Cada tenant tiene un plan con vigencia y tope de páginas. Sin plan activo, el procesamiento se rechaza.</p>
-        </div>
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">03</span>
+        <h5 style="margin-top:6px">Extracción y validación</h5>
+        <p class="mini">El motor extrae los datos, calcula un <strong>confidence score</strong> por campo y valida contra las reglas configuradas.</p>
       </div>
-      <div class="callout" style="margin-top:16px;"><strong>OCR</strong> — motor Azure por defecto; puede configurarse Gemini u otro LLM avanzado para admitir manuscritos.</div>
-    </section>
-
-    <section id="roles">
-      <span class="eyebrow">Quién puede hacer qué</span>
-      <h2>Roles y permisos</h2>
-      <p class="lede">Tres niveles de acceso, pensados para separar la operación de plataforma de la configuración de negocio.</p>
-
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>Rol</th><th>Alcance</th><th>Puede hacer</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Admin</strong></td><td>Plataforma</td><td>Crear organizaciones y asignar planes.</td></tr>
-            <tr><td><strong>Owner</strong></td><td>Tenant</td><td>Configurar tipos de contenido, reglas de validación y conectores — todo en lenguaje natural.</td></tr>
-            <tr><td><strong>User</strong></td><td>Tenant</td><td>Cargar y consultar documentos. Solo lectura sobre la configuración.</td></tr>
-          </tbody>
-        </table>
+      <div class="card acc">
+        <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">04</span>
+        <h5 style="margin-top:6px">Conectores</h5>
+        <p class="mini">Si el documento queda <strong>válido</strong>, se disparan las integraciones de salida hacia otros sistemas.</p>
       </div>
-    </section>
+    </div>
 
-    <section id="estados">
-      <span class="eyebrow">Trazabilidad</span>
-      <h2>Ciclo de vida de un documento</h2>
-      <p class="lede">Todo documento cargado pasa por un estado general; algunos módulos de negocio lo refinan en clasificaciones propias.</p>
+    <div class="callout c-info" style="margin-top:16px">
+      <b>Si el procesamiento falla</b>
+      Por falta de plan activo, créditos agotados o un dato requerido faltante, el documento queda «pendiente» o «en revisión» y el motivo se muestra al usuario para que lo resuelva. Detalle de estados en <a href="comportamiento.html#estados">Ciclo de vida del documento</a>.
+    </div>
+    <div class="callout c-info">
+      <b>Si un conector falla</b>
+      Por ejemplo, el sistema de destino no responde: se muestra el motivo del error y puede reintentarse una vez resuelto el problema, sin reprocesar el documento entero.
+    </div>
 
-      <div class="statechain">
-        <span class="chip neutral">Pendiente</span>
-        <span class="arrow">→</span>
-        <span class="chip neutral">Procesando</span>
-        <span class="arrow">→</span>
-        <div class="statebranch">
-          <span class="chip ok">Válido → dispara conectores</span>
-          <span class="chip warn">En revisión (falta un dato)</span>
-          <span class="chip danger">Rechazado (sin plan / créditos)</span>
-        </div>
-      </div>
+  </div>
+</section>
 
-      <p style="margin-top:18px;">Un módulo como <strong>Invoice Matching</strong> traduce ese estado general a una clasificación de negocio más específica:</p>
-      <div class="cards" style="grid-template-columns:repeat(3,1fr);">
-        <div class="card"><h3><span class="chip ok" style="margin-bottom:6px;">Ready for payment</span></h3><p>La factura coincide con lo esperado.</p></div>
-        <div class="card"><h3><span class="chip warn" style="margin-bottom:6px;">Review</span></h3><p>Hay una diferencia que requiere validación humana.</p></div>
-        <div class="card"><h3><span class="chip danger" style="margin-bottom:6px;">Unidentified</span></h3><p>No se puede vincular a un registro esperado.</p></div>
-        <div class="card"><h3><span class="chip neutral" style="margin-bottom:6px;">Invoice not received</span></h3><p>Hay un pago esperado, pero aún no llegó la factura.</p></div>
-        <div class="card"><h3><span class="chip danger" style="margin-bottom:6px;">Invalid invoice</span></h3><p>No cumple una o más reglas de validación.</p></div>
-        <div class="card"><h3><span class="chip ok" style="margin-bottom:6px;">Paid</span></h3><p>Validada y con el pago completado.</p></div>
-      </div>
-      <style>@media (max-width:640px){ #estados .cards{grid-template-columns:1fr !important;} }</style>
-    </section>
+<!-- ============ 3. CONCEPTOS CLAVE ============ -->
+<section id="conceptos" style="--accent:var(--c-product)">
+  <div class="shead"><div><h2>Vocabulario del producto <span class="num">03</span></h2><p>Siete ideas que explican casi todo lo que hace DocuGPT puertas adentro.</p></div></div>
+  <div class="sbody">
 
-    <section id="planes">
-      <span class="eyebrow">Administración</span>
-      <h2>Organización y planes</h2>
-      <p class="lede">Cada organización contrata un plan dimensionado según el volumen estimado de páginas a procesar en todos sus procesos.</p>
-      <p>El panel de administración muestra, por período vigente: consumo autorizado, consumo total y consumo restante — la vía más común por la que un documento queda «rechazado» es, justamente, no tener plan activo o haber agotado el tope de páginas.</p>
+    <details open>
+      <summary>Tenant / Organización</summary>
+      <div class="dbody"><p class="mini">Base de datos aislada por empresa. Una misma empresa puede tener varios tenants, con entornos separados de desarrollo y producción.</p></div>
+    </details>
+    <details>
+      <summary>Tipo de contenido</summary>
+      <div class="dbody"><p class="mini">Define los campos a extraer y las reglas de formato de cada variable — por ejemplo, un CUIT a 11 dígitos sin guiones.</p></div>
+    </details>
+    <details>
+      <summary>Discovery</summary>
+      <div class="dbody"><p class="mini">Genera el esquema de un tipo de contenido en minutos a partir de al menos 3 documentos de ejemplo, infiriendo incluso variables calculadas.</p></div>
+    </details>
+    <details>
+      <summary>Conector</summary>
+      <div class="dbody"><p class="mini">Acción posterior al procesamiento (webhook o código embebido) que solo se ejecuta si el documento quedó válido. Detalle en <a href="comportamiento.html#conectores">Conectores</a>.</p></div>
+    </details>
+    <details>
+      <summary>Confidence score</summary>
+      <div class="dbody"><p class="mini">Certeza predictiva del modelo sobre cada dato extraído — orienta qué campos conviene revisar a mano.</p></div>
+    </details>
+    <details>
+      <summary>Plan / Consumo</summary>
+      <div class="dbody"><p class="mini">Cada tenant tiene un plan con vigencia y tope de páginas. Sin plan activo, el procesamiento se rechaza. Detalle en <a href="comportamiento.html#planes">Organización y planes</a>.</p></div>
+    </details>
+    <details>
+      <summary>OCR</summary>
+      <div class="dbody"><p class="mini">Motor Azure por defecto; puede configurarse Gemini u otro LLM avanzado para admitir manuscritos.</p></div>
+    </details>
 
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>Paquete</th><th class="num">Páginas incluidas</th><th class="num">Referencia mensual</th></tr></thead>
-          <tbody>
-            <tr><td>Small</td><td class="num">hasta 500</td><td class="num">USD 145</td></tr>
-            <tr><td>Medium</td><td class="num">501 – 2.000</td><td class="num">USD 260</td></tr>
-            <tr><td>Large</td><td class="num">2.001 – 5.000</td><td class="num">USD 475</td></tr>
-            <tr><td>XLarge</td><td class="num">5.001 – 10.000</td><td class="num">USD 850</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="margin-top:12px; font-size:.85rem; color:var(--ink-soft);">Paquetes de crédito de referencia por volumen de páginas; el alcance final de cada proyecto se ajusta según los procesos a implementar.</p>
-    </section>
+  </div>
+</section>
 
-    <section id="conectores">
-      <span class="eyebrow">Integraciones</span>
-      <h2>Conectores</h2>
-      <p class="lede">Un conector es una acción de salida —webhook o código embebido— que se dispara solo cuando el documento queda válido.</p>
+<!-- ============ 4. ROLES Y PERMISOS ============ -->
+<section id="roles" style="--accent:var(--c-product)">
+  <div class="shead"><div><h2>Roles y permisos <span class="num">04</span></h2><p>Tres niveles de acceso, pensados para separar la operación de plataforma de la configuración de negocio.</p></div></div>
+  <div class="sbody">
 
-      <div class="cards">
-        <div class="card"><h3>Odoo</h3><p>Envío de datos extraídos, incl. soporte Odoo 16 y 18. Base del módulo Order to Cash.</p></div>
-        <div class="card"><h3>AFIP QR Parser</h3><p>Valida el QR fiscal de la factura contra AFIP (Argentina).</p></div>
-        <div class="card"><h3>People Force</h3><p>Concilia facturas de contratistas contra los sueldos/pagos esperados.</p></div>
-        <div class="card"><h3>Catálogo ampliable</h3><p>Salesforce, Make.com, NetSuite, SAP, Xero — o un conector a medida para cualquier sistema propio.</p></div>
-      </div>
-      <div class="callout" style="margin-top:16px;">Si un conector falla, el motivo queda visible en la solicitud y puede reintentarse manualmente una vez resuelto — no hace falta volver a cargar el documento.</div>
-    </section>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:140px">Rol</th><th style="width:110px">Alcance</th><th>Puede hacer</th></tr></thead>
+        <tbody>
+          <tr><td><span class="b b-admin">Admin</span></td><td>Plataforma</td><td>Crear organizaciones y asignar planes.</td></tr>
+          <tr><td><span class="b b-owner">Owner</span></td><td>Tenant</td><td>Configurar tipos de contenido, reglas de validación y conectores — todo en lenguaje natural. Ver <a href="guia-owner.html">guía paso a paso</a>.</td></tr>
+          <tr><td><span class="b b-user">User</span></td><td>Tenant</td><td>Cargar y consultar documentos. Solo lectura sobre la configuración. Ver <a href="guia-user.html">guía paso a paso</a>.</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <section id="modulos">
-      <span class="eyebrow">Add-ons</span>
-      <h2>Módulos de negocio</h2>
-      <p class="lede">Paquetes reutilizables construidos sobre el motor base de DocuGPT para procesos específicos.</p>
+  </div>
+</section>
 
-      <div class="module">
-        <div class="module-head"><h3>Invoice Matching</h3><span class="module-tag">Finanzas</span></div>
-        <p>Concilia facturas de proveedores o contratistas contra los datos de pago esperados, y expone las diferencias que requieren revisión.</p>
-        <div class="module-flow">
-          <div class="mstep"><span class="num">1</span><strong>Pago esperado</strong><span>El sistema de RR.HH. aporta el registro del contratista y el monto esperado del período.</span></div>
-          <div class="mstep"><span class="num">2</span><strong>Datos de factura</strong><span>DocuGPT procesa la factura y extrae la información para la conciliación.</span></div>
-          <div class="mstep"><span class="num">3</span><strong>Matching</strong><span>Compara monto facturado vs. esperado y marca la diferencia.</span></div>
-        </div>
-        <p style="font-size:.87rem;">Salida: vista consolidada por estado, reportes y lotes de pago, recordatorios de facturas pendientes, exportación a sistemas contables y filtros por estado, área o lote.</p>
-        <div class="impact">
-          <div><div class="num">−89%</div><div class="lbl">tiempo de procesamiento (18h → 2h/mes)</div></div>
-          <div><div class="num">120</div><div class="lbl">facturas de contratistas automatizadas / mes</div></div>
-        </div>
-      </div>
+</div><!-- /wrap -->
 
-      <div class="module">
-        <div class="module-head"><h3>CV Matching &amp; Processor</h3><span class="module-tag">Talento</span></div>
-        <p>Compara la información de un CV contra los requisitos de una búsqueda para agilizar y estandarizar la revisión de candidatos.</p>
-        <div class="module-flow">
-          <div class="mstep"><span class="num">1</span><strong>Perfil de vacante</strong><span>Rol activo, descripción del puesto, skills y atributos requeridos.</span></div>
-          <div class="mstep"><span class="num">2</span><strong>Plantilla</strong><span>Documento Google Docs y carpeta de Drive donde se genera el perfil estandarizado.</span></div>
-          <div class="mstep"><span class="num">3</span><strong>CVs</strong><span>Se importan desde Drive o archivos locales para su análisis por IA.</span></div>
-        </div>
-        <p style="font-size:.87rem;">La IA evalúa cada CV contra la vacante y genera un <strong>match score</strong>; además sugiere perfiles del Talent Bank con solapamiento de skills. La salida incluye el resumen del match, fortalezas y brechas, el CV estandarizado guardado en Drive, y un chatbot para pedir acciones en lenguaje natural sobre los perfiles.</p>
-        <div class="impact">
-          <div><div class="num">−87%</div><div class="lbl">tiempo de preparación (7.5h → 1h/mes)</div></div>
-          <div><div class="num">30</div><div class="lbl">CVs auto-convertidos / mes</div></div>
-        </div>
-      </div>
-
-      <div class="module">
-        <div class="module-head"><h3>Order to Cash</h3><span class="module-tag">Plugin Odoo</span></div>
-        <p>Compara la factura recibida contra la recepción de bienes o servicios (remito) asociada a la orden de compra. Muestra los casos con 100% de coincidencia y los que tienen diferencias, para que el analista los revise.</p>
-      </div>
-    </section>
-
-    <section id="metricas">
-      <span class="eyebrow">Resultados</span>
-      <h2>Métricas de impacto</h2>
-      <p class="lede">Dos pilotos ya corriendo puertas adentro de Nybble Group, con números propios.</p>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="num">−89%</div>
-          <div class="sub">reducción en tiempo de procesamiento de facturas</div>
-          <div class="detail"><span>Antes: 18 h/mes</span><span>Después: 2 h/mes</span></div>
-        </div>
-        <div class="stat">
-          <div class="num">−87%</div>
-          <div class="sub">reducción en tiempo de preparación de CVs</div>
-          <div class="detail"><span>Antes: 7.5 h/mes</span><span>Después: 1 h/mes</span></div>
-        </div>
-      </div>
-
-      <p style="margin-top:26px;">Indicadores que el framework permite medir en cualquier proceso nuevo:</p>
-      <ul class="kpi">
-        <li><span class="dot"></span><span><strong>Volumen procesado por FTE</strong> — capacidad de procesamiento por persona, sin sumar headcount.</span></li>
-        <li><span class="dot"></span><span><strong>Tiempo por documento</strong> — desde la recepción hasta el dato extraído (objetivo: −85% vs. proceso manual).</span></li>
-        <li><span class="dot"></span><span><strong>Straight-through processing</strong> — % de documentos procesados sin intervención humana.</span></li>
-        <li><span class="dot"></span><span><strong>Precisión de extracción</strong> — campo a campo contra validación humana (objetivo &gt;95%).</span></li>
-        <li><span class="dot"></span><span><strong>Tasa de reproceso</strong> — documentos que requieren corrección por error de carga manual.</span></li>
-        <li><span class="dot"></span><span><strong>Costo por documento</strong> — personas, infraestructura y tecnología combinados.</span></li>
-        <li><span class="dot"></span><span><strong>Time-to-scale</strong> — tiempo para escalar capacidad en picos de demanda, sin contratar.</span></li>
-        <li><span class="dot"></span><span><strong>ROI y payback</strong> — ahorro acumulado vs. inversión inicial de implementación y licencia.</span></li>
-        <li><span class="dot"></span><span><strong>Cobertura de tipos de documento</strong> — nuevos tipos soportados sin desarrollo a medida.</span></li>
-        <li><span class="dot"></span><span><strong>Satisfacción del usuario</strong> — de quienes dejaron la carga manual y hoy validan/supervisan.</span></li>
-      </ul>
-    </section>
-
-    <section id="tecnico">
-      <span class="eyebrow">Para equipos técnicos</span>
-      <h2>Notas técnicas</h2>
-      <p class="lede">Framework API-first, pensado para integrarse con otros servicios y con agentes de IA propios.</p>
-      <div class="cards">
-        <div class="card"><h3>Arquitectura</h3><p>Tres capas: API (Express), frontend (Next.js) y un SDK TypeScript autogenerado a partir de la API.</p></div>
-        <div class="card"><h3>Datos</h3><p>Persistencia en PostgreSQL vía Prisma, sobre infraestructura en ECS.</p></div>
-        <div class="card"><h3>Multi-tenant</h3><p>Entornos separados de desarrollo (-de) y producción por cada organización.</p></div>
-        <div class="card"><h3>OCR / IA</h3><p>Azure como motor por defecto; Gemini u otro LLM avanzado configurable para manuscritos.</p></div>
-      </div>
-    </section>
-  </main>
+<div class="pager">
+  <a class="next" href="comportamiento.html#estados" style="text-align:right;margin-left:auto"><span class="d">Siguiente</span><span class="t">Comportamiento →</span></a>
 </div>
 
-<footer class="site">
-  <div class="footer-inner">
-    <span>© Nybble Group 2026 — Confidencial y de uso interno.</span>
-    <span>Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></span>
+<footer>
+  <div class="wrap" style="padding:0">
+    <p>© Nybble Group 2026 — Confidencial y de uso interno. Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></p>
   </div>
 </footer>
 
-<script>
-(function(){
-  var links = Array.prototype.slice.call(document.querySelectorAll('.navlink'));
-  var sections = links.map(function(l){ return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
-  if(!('IntersectionObserver' in window) || !sections.length) return;
-
-  var byId = {};
-  links.forEach(function(l){ byId[l.getAttribute('href').slice(1)] = l; });
-
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      var link = byId[entry.target.id];
-      if(!link) return;
-      if(entry.isIntersecting){
-        links.forEach(function(l){ l.classList.remove('current'); });
-        link.classList.add('current');
-      }
-    });
-  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
-
-  sections.forEach(function(s){ observer.observe(s); });
-
-  // close mobile nav after choosing a section
-  var toggle = document.getElementById('navtoggle');
-  links.forEach(function(l){
-    l.addEventListener('click', function(){ if(toggle) toggle.checked = false; });
-  });
-})();
-</script>
-
+</main>
+</div><!-- /shell -->
+<a class="toplink" href="#resumen">↑ Arriba</a>
 </body>
 </html>

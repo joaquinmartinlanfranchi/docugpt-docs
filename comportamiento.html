@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocuGPT · Comportamiento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="shell">
+
+<nav class="side">
+  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
+
+  <div class="grp">Producto</div>
+  <a href="index.html#resumen"><i>1</i>Resumen</a>
+  <a href="index.html#flujo"><i>2</i>Cómo funciona</a>
+  <a href="index.html#conceptos"><i>3</i>Conceptos clave</a>
+  <a href="index.html#roles"><i>4</i>Roles y permisos</a>
+
+  <div class="grp is-here">Comportamiento</div>
+  <a href="#estados" class="is-here"><i>5</i>Ciclo de vida del documento</a>
+  <a href="#planes"><i>6</i>Organización y planes</a>
+  <a href="#conectores"><i>7</i>Conectores</a>
+  <a href="#modulos"><i>8</i>Módulos de negocio</a>
+
+  <div class="grp">Medición</div>
+  <a href="medicion.html#metricas"><i>9</i>Métricas de impacto</a>
+  <a href="medicion.html#tecnico"><i>10</i>Notas técnicas</a>
+
+  <div class="grp">Referencia</div>
+  <a href="medicion.html#limites"><i>·</i>Límites conocidos</a>
+
+  <div class="grp">Guías</div>
+  <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
+  <a href="guia-user.html"><i>★</i>Guía · User</a>
+</nav>
+
+<main>
+<header class="pagehead" style="--accent:var(--c-comportamiento)">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">DocuGPT</a> · Comportamiento</div>
+    <h1>Comportamiento</h1>
+    <p>Cómo se mueve el estado de un documento de punta a punta, y los flujos funcionales concretos que lo rodean: planes, conectores y módulos de negocio.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 5. CICLO DE VIDA DEL DOCUMENTO ============ -->
+<section id="estados" style="--accent:var(--c-comportamiento)">
+  <div class="shead"><div><h2>Ciclo de vida de un documento <span class="num">05</span></h2><p>Todo documento cargado pasa por un estado general; algunos módulos de negocio lo refinan en clasificaciones propias.</p></div></div>
+  <div class="sbody">
+
+    <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:22px 24px">
+      <span class="st st-pend">Pendiente</span>
+      <span style="color:var(--ink3)">→</span>
+      <span class="st st-proc">Procesando</span>
+      <span style="color:var(--ink3)">→</span>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="st st-ok">Válido → dispara conectores</span>
+        <span class="st st-rev">En revisión (falta un dato)</span>
+        <span class="st st-bad">Rechazado (sin plan / créditos)</span>
+      </div>
+    </div>
+
+    <h3>Ejemplo: clasificación de negocio en Invoice Matching</h3>
+    <p>Un módulo como <span class="b b-user" style="background:none;border:none;padding:0;color:var(--ink);font-weight:600">Invoice Matching</span> traduce ese estado general a una clasificación más específica para el analista que revisa facturas:</p>
+    <div class="grid g3">
+      <div class="card"><span class="st st-ok">Ready for payment</span><p class="mini" style="margin-top:8px">La factura coincide con lo esperado.</p></div>
+      <div class="card"><span class="st st-rev">Review</span><p class="mini" style="margin-top:8px">Hay una diferencia que requiere validación humana.</p></div>
+      <div class="card"><span class="st st-bad">Unidentified</span><p class="mini" style="margin-top:8px">No se puede vincular a un registro esperado.</p></div>
+      <div class="card"><span class="st st-pend">Invoice not received</span><p class="mini" style="margin-top:8px">Hay un pago esperado, pero aún no llegó la factura.</p></div>
+      <div class="card"><span class="st st-bad">Invalid invoice</span><p class="mini" style="margin-top:8px">No cumple una o más reglas de validación.</p></div>
+      <div class="card"><span class="st st-ok">Paid</span><p class="mini" style="margin-top:8px">Validada y con el pago completado.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 6. ORGANIZACIÓN Y PLANES ============ -->
+<section id="planes" style="--accent:var(--c-comportamiento)">
+  <div class="shead"><div><h2>Organización y planes <span class="num">06</span></h2><p>Cada organización contrata un plan dimensionado según el volumen estimado de páginas a procesar en todos sus procesos.</p></div></div>
+  <div class="sbody">
+
+    <p>El panel de administración muestra, por período vigente: consumo autorizado, consumo total y consumo restante. La vía más común por la que un documento queda <span class="st st-bad" style="vertical-align:middle">Rechazado</span> es, justamente, no tener plan activo o haber agotado el tope de páginas.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>Paquete</th><th class="num">Páginas incluidas</th><th class="num">Referencia mensual</th></tr></thead>
+        <tbody>
+          <tr><td>Small</td><td class="num">hasta 500</td><td class="num">USD 145</td></tr>
+          <tr><td>Medium</td><td class="num">501 – 2.000</td><td class="num">USD 260</td></tr>
+          <tr><td>Large</td><td class="num">2.001 – 5.000</td><td class="num">USD 475</td></tr>
+          <tr><td>XLarge</td><td class="num">5.001 – 10.000</td><td class="num">USD 850</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mini" style="color:var(--ink3);font-size:.82rem">Paquetes de crédito de referencia por volumen de páginas; el alcance final de cada proyecto se ajusta según los procesos a implementar.</p>
+
+  </div>
+</section>
+
+<!-- ============ 7. CONECTORES ============ -->
+<section id="conectores" style="--accent:var(--c-comportamiento)">
+  <div class="shead"><div><h2>Conectores <span class="num">07</span></h2><p>Un conector es una acción de salida — webhook o código embebido — que se dispara solo cuando el documento queda válido.</p></div></div>
+  <div class="sbody">
+
+    <div class="grid g4">
+      <div class="card acc"><h5>Odoo</h5><p class="mini">Envío de datos extraídos, incl. soporte Odoo 16 y 18. Base del módulo Order to Cash.</p></div>
+      <div class="card acc"><h5>AFIP QR Parser</h5><p class="mini">Valida el QR fiscal de la factura contra AFIP (Argentina).</p></div>
+      <div class="card acc"><h5>People Force</h5><p class="mini">Concilia facturas de contratistas contra los sueldos/pagos esperados.</p></div>
+      <div class="card acc"><h5>Catálogo ampliable</h5><p class="mini">Salesforce, Make.com, NetSuite, SAP, Xero — o un conector a medida para cualquier sistema propio.</p></div>
+    </div>
+
+    <div class="callout c-info" style="margin-top:16px">
+      <b>Si un conector falla</b>
+      El motivo queda visible en la solicitud y puede reintentarse manualmente una vez resuelto — no hace falta volver a cargar el documento.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 8. MÓDULOS DE NEGOCIO ============ -->
+<section id="modulos" style="--accent:var(--c-comportamiento)">
+  <div class="shead"><div><h2>Módulos de negocio <span class="num">08</span></h2><p>Paquetes reutilizables construidos sobre el motor base de DocuGPT para procesos específicos.</p></div></div>
+  <div class="sbody">
+
+    <div class="flowcard">
+      <div class="fh">
+        <h5>Invoice Matching</h5>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,#fff);padding:3px 10px;border-radius:999px">Finanzas</span>
+      </div>
+      <div class="fb">
+        <p>Concilia facturas de proveedores o contratistas contra los datos de pago esperados, y expone las diferencias que requieren revisión.</p>
+        <div class="frow"><div class="lab">01</div><div><strong>Pago esperado</strong><p class="mini" style="margin-top:2px">El sistema de RR.HH. aporta el registro del contratista y el monto esperado del período.</p></div></div>
+        <div class="frow"><div class="lab">02</div><div><strong>Datos de factura</strong><p class="mini" style="margin-top:2px">DocuGPT procesa la factura y extrae la información para la conciliación.</p></div></div>
+        <div class="frow"><div class="lab">03</div><div><strong>Matching</strong><p class="mini" style="margin-top:2px">Compara monto facturado vs. esperado y marca la diferencia.</p></div></div>
+        <p class="mini" style="margin-top:14px">Salida: vista consolidada por estado, reportes y lotes de pago, recordatorios de facturas pendientes, exportación a sistemas contables y filtros por estado, área o lote.</p>
+        <div class="impact">
+          <div><div class="num">−89%</div><div class="lbl">tiempo de procesamiento (18h → 2h/mes)</div></div>
+          <div><div class="num">120</div><div class="lbl">facturas de contratistas automatizadas / mes</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flowcard">
+      <div class="fh">
+        <h5>CV Matching &amp; Processor</h5>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,#fff);padding:3px 10px;border-radius:999px">Talento</span>
+      </div>
+      <div class="fb">
+        <p>Compara la información de un CV contra los requisitos de una búsqueda para agilizar y estandarizar la revisión de candidatos.</p>
+        <div class="frow"><div class="lab">01</div><div><strong>Perfil de vacante</strong><p class="mini" style="margin-top:2px">Rol activo, descripción del puesto, skills y atributos requeridos.</p></div></div>
+        <div class="frow"><div class="lab">02</div><div><strong>Plantilla</strong><p class="mini" style="margin-top:2px">Documento Google Docs y carpeta de Drive donde se genera el perfil estandarizado.</p></div></div>
+        <div class="frow"><div class="lab">03</div><div><strong>CVs</strong><p class="mini" style="margin-top:2px">Se importan desde Drive o archivos locales para su análisis por IA.</p></div></div>
+        <p class="mini" style="margin-top:14px">La IA evalúa cada CV contra la vacante y genera un <strong>match score</strong>; además sugiere perfiles del Talent Bank con solapamiento de skills. La salida incluye el resumen del match, fortalezas y brechas, el CV estandarizado guardado en Drive, y un chatbot para pedir acciones en lenguaje natural sobre los perfiles.</p>
+        <div class="impact">
+          <div><div class="num">−87%</div><div class="lbl">tiempo de preparación (7.5h → 1h/mes)</div></div>
+          <div><div class="num">30</div><div class="lbl">CVs auto-convertidos / mes</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flowcard">
+      <div class="fh">
+        <h5>Order to Cash</h5>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,#fff);padding:3px 10px;border-radius:999px">Plugin Odoo</span>
+      </div>
+      <div class="fb">
+        <p style="margin:0">Compara la factura recibida contra la recepción de bienes o servicios (remito) asociada a la orden de compra. Muestra los casos con 100% de coincidencia y los que tienen diferencias, para que el analista los revise.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<div class="pager">
+  <a class="prev" href="index.html#roles"><span class="d">Anterior</span><span class="t">← Producto</span></a>
+  <a class="next" href="medicion.html#metricas"><span class="d">Siguiente</span><span class="t">Medición →</span></a>
+</div>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <p>© Nybble Group 2026 — Confidencial y de uso interno. Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></p>
+  </div>
+</footer>
+
+</main>
+</div><!-- /shell -->
+<a class="toplink" href="#estados">↑ Arriba</a>
+</body>
+</html>
