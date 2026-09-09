@@ -3,44 +3,182 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DocuGPT · Comportamiento</title>
+<title data-i18n="page.title">DocuGPT · Comportamiento</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Sora:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="shell">
 
 <nav class="side">
-  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
+  <div class="brand">
+    <svg class="nybble-mark" width="26" height="26" viewBox="0 0 36 36" aria-hidden="true">
+      <circle cx="6" cy="6" r="3.4"/><circle cx="18" cy="6" r="3.4"/><circle cx="30" cy="6" r="3.4"/>
+      <circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="18" r="2.6"/><circle cx="30" cy="18" r="2.6"/>
+      <circle cx="6" cy="30" r="3.4"/><circle cx="18" cy="30" r="2.6"/><circle cx="30" cy="30" r="2.6"/>
+      <path d="M6 6 C14 14, 22 22, 30 30"/>
+    </svg>
+    <div class="brand-text"><b>DocuGPT</b><span data-i18n="nav.brandTag">Guía funcional · Nybble Group</span></div>
+  </div>
 
-  <div class="grp">Producto</div>
-  <a href="index.html#resumen"><i>1</i>Resumen</a>
-  <a href="index.html#conceptos"><i>2</i>Conceptos clave</a>
-  <a href="index.html#roles"><i>3</i>Roles y permisos</a>
+  <div class="langtoggle" role="group" aria-label="Language / Idioma">
+    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+  </div>
 
-  <div class="grp is-here">Comportamiento</div>
-  <a href="#estados" class="is-here"><i>4</i>Ciclo de vida del documento</a>
-  <a href="#planes"><i>5</i>Organización y planes</a>
-  <a href="#conectores"><i>6</i>Conectores</a>
-  <a href="#modulos"><i>7</i>Módulos de negocio</a>
+  <div class="grp" data-i18n="nav.grp.producto">Producto</div>
+  <a href="index.html#resumen"><i>1</i><span data-i18n="nav.link.resumen">Resumen</span></a>
+  <a href="index.html#conceptos"><i>2</i><span data-i18n="nav.link.conceptos">Conceptos clave</span></a>
+  <a href="index.html#roles"><i>3</i><span data-i18n="nav.link.roles">Roles y permisos</span></a>
 
-  <div class="grp">Medición</div>
-  <a href="medicion.html#metricas"><i>8</i>Métricas de impacto</a>
-  <a href="medicion.html#tecnico"><i>9</i>Notas técnicas</a>
+  <div class="grp is-here" data-i18n="nav.grp.comportamiento">Comportamiento</div>
+  <a href="#estados" class="is-here"><i>4</i><span data-i18n="nav.link.estados">Ciclo de vida del documento</span></a>
+  <a href="#planes"><i>5</i><span data-i18n="nav.link.planes">Organización y planes</span></a>
+  <a href="#conectores"><i>6</i><span data-i18n="nav.link.conectores">Conectores</span></a>
+  <a href="#modulos"><i>7</i><span data-i18n="nav.link.modulos">Módulos de negocio</span></a>
 
-  <div class="grp">Guías</div>
-  <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
-  <a href="guia-user.html"><i>★</i>Guía · User</a>
+  <div class="grp" data-i18n="nav.grp.medicion">Medición</div>
+  <a href="medicion.html#metricas"><i>8</i><span data-i18n="nav.link.metricas">Métricas de impacto</span></a>
+  <a href="medicion.html#tecnico"><i>9</i><span data-i18n="nav.link.tecnico">Notas técnicas</span></a>
+
+  <div class="grp" data-i18n="nav.grp.guias">Guías</div>
+  <a href="guia-owner.html"><i>★</i><span data-i18n="nav.link.guiaOwner">Guía · Owner</span></a>
+  <a href="guia-user.html"><i>★</i><span data-i18n="nav.link.guiaUser">Guía · User</span></a>
 </nav>
 
 <main>
 <header class="pagehead" style="--accent:var(--c-comportamiento)">
+  <div class="mesh">
+<svg viewBox="0 0 960 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--ink3)" stroke-width="1">
+<g stroke="var(--ink3)">
+<path d="M15.0 31.3 L105.0 44.0"/>
+<path d="M15.0 31.3 L60.0 87.7"/>
+<path d="M105.0 44.0 L195.0 38.9"/>
+<path d="M105.0 44.0 L150.0 91.1"/>
+<path d="M195.0 38.9 L285.0 46.1"/>
+<path d="M195.0 38.9 L240.0 98.9"/>
+<path d="M285.0 46.1 L375.0 49.0"/>
+<path d="M285.0 46.1 L330.0 85.0"/>
+<path d="M375.0 49.0 L465.0 33.0"/>
+<path d="M375.0 49.0 L420.0 78.4"/>
+<path d="M465.0 33.0 L555.0 30.9"/>
+<path d="M465.0 33.0 L510.0 79.2"/>
+<path d="M555.0 30.9 L645.0 28.0"/>
+<path d="M555.0 30.9 L600.0 63.1"/>
+<path d="M645.0 28.0 L735.0 11.5"/>
+<path d="M645.0 28.0 L690.0 59.9"/>
+<path d="M735.0 11.5 L825.0 14.4"/>
+<path d="M735.0 11.5 L780.0 68.5"/>
+<path d="M825.0 14.4 L915.0 20.3"/>
+<path d="M825.0 14.4 L870.0 62.8"/>
+<path d="M915.0 20.3 L960.0 70.4"/>
+<path d="M60.0 87.7 L150.0 91.1"/>
+<path d="M60.0 87.7 L15.0 146.7"/>
+<path d="M150.0 91.1 L240.0 98.9"/>
+<path d="M150.0 91.1 L105.0 141.2"/>
+<path d="M240.0 98.9 L330.0 85.0"/>
+<path d="M240.0 98.9 L195.0 133.1"/>
+<path d="M330.0 85.0 L420.0 78.4"/>
+<path d="M330.0 85.0 L285.0 136.9"/>
+<path d="M420.0 78.4 L510.0 79.2"/>
+<path d="M420.0 78.4 L375.0 123.0"/>
+<path d="M510.0 79.2 L600.0 63.1"/>
+<path d="M510.0 79.2 L465.0 111.4"/>
+<path d="M600.0 63.1 L690.0 59.9"/>
+<path d="M600.0 63.1 L555.0 116.8"/>
+<path d="M690.0 59.9 L780.0 68.5"/>
+<path d="M690.0 59.9 L645.0 109.4"/>
+<path d="M780.0 68.5 L870.0 62.8"/>
+<path d="M780.0 68.5 L735.0 107.9"/>
+<path d="M870.0 62.8 L960.0 70.4"/>
+<path d="M870.0 62.8 L825.0 124.2"/>
+<path d="M960.0 70.4 L915.0 125.7"/>
+<path d="M15.0 146.7 L105.0 141.2"/>
+<path d="M15.0 146.7 L60.0 181.6"/>
+<path d="M105.0 141.2 L195.0 133.1"/>
+<path d="M105.0 141.2 L150.0 185.3"/>
+<path d="M195.0 133.1 L285.0 136.9"/>
+<path d="M195.0 133.1 L240.0 176.4"/>
+<path d="M285.0 136.9 L375.0 123.0"/>
+<path d="M285.0 136.9 L330.0 160.4"/>
+<path d="M375.0 123.0 L465.0 111.4"/>
+<path d="M375.0 123.0 L420.0 164.1"/>
+<path d="M465.0 111.4 L555.0 116.8"/>
+<path d="M465.0 111.4 L510.0 160.3"/>
+<path d="M555.0 116.8 L645.0 109.4"/>
+<path d="M555.0 116.8 L600.0 153.6"/>
+<path d="M645.0 109.4 L735.0 107.9"/>
+<path d="M645.0 109.4 L690.0 168.3"/>
+<path d="M735.0 107.9 L825.0 124.2"/>
+<path d="M735.0 107.9 L780.0 174.2"/>
+<path d="M825.0 124.2 L915.0 125.7"/>
+<path d="M825.0 124.2 L870.0 173.9"/>
+<path d="M915.0 125.7 L960.0 190.1"/>
+<path d="M60.0 181.6 L150.0 185.3"/>
+<path d="M150.0 185.3 L240.0 176.4"/>
+<path d="M240.0 176.4 L330.0 160.4"/>
+<path d="M330.0 160.4 L420.0 164.1"/>
+<path d="M420.0 164.1 L510.0 160.3"/>
+<path d="M510.0 160.3 L600.0 153.6"/>
+<path d="M600.0 153.6 L690.0 168.3"/>
+<path d="M690.0 168.3 L780.0 174.2"/>
+<path d="M780.0 174.2 L870.0 173.9"/>
+<path d="M870.0 173.9 L960.0 190.1"/>
+</g>
+<g fill="var(--ink3)" stroke="none">
+<circle cx="15.0" cy="31.3" r="1.6"/>
+<circle cx="105.0" cy="44.0" r="1.6"/>
+<circle cx="195.0" cy="38.9" r="2.6"/>
+<circle cx="285.0" cy="46.1" r="1.6"/>
+<circle cx="375.0" cy="49.0" r="3.2"/>
+<circle cx="465.0" cy="33.0" r="1.6"/>
+<circle cx="555.0" cy="30.9" r="1.6"/>
+<circle cx="645.0" cy="28.0" r="1.6"/>
+<circle cx="735.0" cy="11.5" r="1.6"/>
+<circle cx="825.0" cy="14.4" r="1.6"/>
+<circle cx="915.0" cy="20.3" r="1.6"/>
+<circle cx="60.0" cy="87.7" r="1.6"/>
+<circle cx="150.0" cy="91.1" r="1.6"/>
+<circle cx="240.0" cy="98.9" r="1.6"/>
+<circle cx="330.0" cy="85.0" r="1.6"/>
+<circle cx="420.0" cy="78.4" r="1.6"/>
+<circle cx="510.0" cy="79.2" r="1.6"/>
+<circle cx="600.0" cy="63.1" r="3.2"/>
+<circle cx="690.0" cy="59.9" r="1.6"/>
+<circle cx="780.0" cy="68.5" r="2.6"/>
+<circle cx="870.0" cy="62.8" r="1.6"/>
+<circle cx="960.0" cy="70.4" r="1.6"/>
+<circle cx="15.0" cy="146.7" r="1.6"/>
+<circle cx="105.0" cy="141.2" r="1.6"/>
+<circle cx="195.0" cy="133.1" r="1.6"/>
+<circle cx="285.0" cy="136.9" r="1.6"/>
+<circle cx="375.0" cy="123.0" r="1.6"/>
+<circle cx="465.0" cy="111.4" r="1.6"/>
+<circle cx="555.0" cy="116.8" r="1.6"/>
+<circle cx="645.0" cy="109.4" r="1.6"/>
+<circle cx="735.0" cy="107.9" r="3.2"/>
+<circle cx="825.0" cy="124.2" r="1.6"/>
+<circle cx="915.0" cy="125.7" r="1.6"/>
+<circle cx="60.0" cy="181.6" r="1.6"/>
+<circle cx="150.0" cy="185.3" r="1.6"/>
+<circle cx="240.0" cy="176.4" r="1.6"/>
+<circle cx="330.0" cy="160.4" r="2.6"/>
+<circle cx="420.0" cy="164.1" r="1.6"/>
+<circle cx="510.0" cy="160.3" r="1.6"/>
+<circle cx="600.0" cy="153.6" r="1.6"/>
+<circle cx="690.0" cy="168.3" r="1.6"/>
+<circle cx="780.0" cy="174.2" r="1.6"/>
+<circle cx="870.0" cy="173.9" r="1.6"/>
+<circle cx="960.0" cy="190.1" r="3.2"/>
+</g>
+</svg>
+  </div>
   <div class="wrap">
-    <div class="crumb"><a href="index.html">DocuGPT</a> · Comportamiento</div>
-    <h1>Comportamiento</h1>
-    <p>Cómo se mueve el estado de un documento de punta a punta, y los flujos funcionales concretos que lo rodean: planes, conectores y módulos de negocio.</p>
+    <div class="crumb"><a href="index.html">DocuGPT</a> · <span data-i18n="ph.crumb">Comportamiento</span></div>
+    <h1 data-i18n="ph.h1">Comportamiento</h1>
+    <p data-i18n="ph.p">Cómo se mueve el estado de un documento de punta a punta, y los flujos funcionales concretos que lo rodean: planes, conectores y módulos de negocio.</p>
   </div>
 </header>
 
@@ -48,60 +186,60 @@
 
 <!-- ============ 4. CICLO DE VIDA DEL DOCUMENTO ============ -->
 <section id="estados" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Ciclo de vida de un documento <span class="num">04</span></h2><p>De archivo a dato accionable: las cuatro etapas que recorre todo documento, y el estado que va tomando en cada una.</p></div></div>
+  <div class="shead"><div><h2><span data-i18n="estados.h2">Ciclo de vida de un documento</span> <span class="num">04</span></h2><p data-i18n="estados.p">De archivo a dato accionable: las cuatro etapas que recorre todo documento, y el estado que va tomando en cada una.</p></div></div>
   <div class="sbody">
 
-    <h3>Las cuatro etapas</h3>
+    <h3 data-i18n="estados.h3.etapas">Las cuatro etapas</h3>
     <div class="grid g4">
       <div class="card acc">
         <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">01</span>
-        <h5 style="margin-top:6px">Ingesta</h5>
-        <p class="mini">El documento llega por casilla de email, se sube a mano o se lee desde Drive/API.</p>
+        <h5 style="margin-top:6px" data-i18n="et1.title">Ingesta</h5>
+        <p class="mini" data-i18n="et1.body">El documento llega por casilla de email, se sube a mano o se lee desde Drive/API.</p>
       </div>
       <div class="card acc">
         <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">02</span>
-        <h5 style="margin-top:6px">Clasificación</h5>
-        <p class="mini">La organización lo asocia a un <strong>tipo de contenido</strong>: el esquema de campos e instrucciones que le corresponde.</p>
+        <h5 style="margin-top:6px" data-i18n="et2.title">Clasificación</h5>
+        <p class="mini" data-i18n-html="et2.body">La organización lo asocia a un <strong>tipo de contenido</strong>: el esquema de campos e instrucciones que le corresponde.</p>
       </div>
       <div class="card acc">
         <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">03</span>
-        <h5 style="margin-top:6px">Extracción y validación</h5>
-        <p class="mini">El motor extrae los datos, calcula un <strong>confidence score</strong> por campo y valida contra las reglas configuradas.</p>
+        <h5 style="margin-top:6px" data-i18n="et3.title">Extracción y validación</h5>
+        <p class="mini" data-i18n-html="et3.body">El motor extrae los datos, calcula un <strong>confidence score</strong> por campo y valida contra las reglas configuradas.</p>
       </div>
       <div class="card acc">
         <span style="font-family:var(--mono);font-size:.7rem;color:var(--accent);font-weight:600">04</span>
-        <h5 style="margin-top:6px">Conectores</h5>
-        <p class="mini">Si el documento queda <strong>válido</strong>, se disparan las integraciones de salida hacia otros sistemas.</p>
+        <h5 style="margin-top:6px" data-i18n="et4.title">Conectores</h5>
+        <p class="mini" data-i18n-html="et4.body">Si el documento queda <strong>válido</strong>, se disparan las integraciones de salida hacia otros sistemas.</p>
       </div>
     </div>
 
-    <h3>Qué estado toma el documento</h3>
+    <h3 data-i18n="estados.h3.estado">Qué estado toma el documento</h3>
     <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:22px 24px">
-      <span class="st st-pend">Pendiente</span>
+      <span class="st st-pend" data-i18n="st.pendiente">Pendiente</span>
       <span style="color:var(--ink3)">→</span>
-      <span class="st st-proc">Procesando</span>
+      <span class="st st-proc" data-i18n="st.procesando">Procesando</span>
       <span style="color:var(--ink3)">→</span>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <span class="st st-ok">Válido → dispara conectores</span>
-        <span class="st st-rev">En revisión (falta un dato)</span>
-        <span class="st st-bad">Rechazado (sin plan / créditos)</span>
+        <span class="st st-ok" data-i18n="st.valido">Válido → dispara conectores</span>
+        <span class="st st-rev" data-i18n="st.revision">En revisión (falta un dato)</span>
+        <span class="st st-bad" data-i18n="st.rechazado">Rechazado (sin plan / créditos)</span>
       </div>
     </div>
 
     <div class="callout c-info">
-      <b>Si el procesamiento falla</b>
-      Por falta de plan activo, créditos agotados o un dato requerido faltante, el documento queda «pendiente» o «en revisión» y el motivo se muestra al usuario para que lo resuelva.
+      <b data-i18n="callout.falla.title">Si el procesamiento falla</b>
+      <span data-i18n="callout.falla.body">Por falta de plan activo, créditos agotados o un dato requerido faltante, el documento queda «pendiente» o «en revisión» y el motivo se muestra al usuario para que lo resuelva.</span>
     </div>
 
-    <h3>Ejemplo: clasificación de negocio en Invoice Matching</h3>
-    <p>Un módulo como <span class="b b-user" style="background:none;border:none;padding:0;color:var(--ink);font-weight:600">Invoice Matching</span> traduce ese estado general a una clasificación más específica para el analista que revisa facturas:</p>
+    <h3 data-i18n="estados.h3.ejemplo">Ejemplo: clasificación de negocio en Invoice Matching</h3>
+    <p data-i18n="estados.ejemplo.p">Un módulo como Invoice Matching traduce ese estado general a una clasificación más específica para el analista que revisa facturas:</p>
     <div class="grid g3">
-      <div class="card"><span class="st st-ok">Ready for payment</span><p class="mini" style="margin-top:8px">La factura coincide con lo esperado.</p></div>
-      <div class="card"><span class="st st-rev">Review</span><p class="mini" style="margin-top:8px">Hay una diferencia que requiere validación humana.</p></div>
-      <div class="card"><span class="st st-bad">Unidentified</span><p class="mini" style="margin-top:8px">No se puede vincular a un registro esperado.</p></div>
-      <div class="card"><span class="st st-pend">Invoice not received</span><p class="mini" style="margin-top:8px">Hay un pago esperado, pero aún no llegó la factura.</p></div>
-      <div class="card"><span class="st st-bad">Invalid invoice</span><p class="mini" style="margin-top:8px">No cumple una o más reglas de validación.</p></div>
-      <div class="card"><span class="st st-ok">Paid</span><p class="mini" style="margin-top:8px">Validada y con el pago completado.</p></div>
+      <div class="card"><span class="st st-ok" data-i18n="im.rfp">Ready for payment</span><p class="mini" style="margin-top:8px" data-i18n="im.rfp.body">La factura coincide con lo esperado.</p></div>
+      <div class="card"><span class="st st-rev" data-i18n="im.review">Review</span><p class="mini" style="margin-top:8px" data-i18n="im.review.body">Hay una diferencia que requiere validación humana.</p></div>
+      <div class="card"><span class="st st-bad" data-i18n="im.unident">Unidentified</span><p class="mini" style="margin-top:8px" data-i18n="im.unident.body">No se puede vincular a un registro esperado.</p></div>
+      <div class="card"><span class="st st-pend" data-i18n="im.notrec">Invoice not received</span><p class="mini" style="margin-top:8px" data-i18n="im.notrec.body">Hay un pago esperado, pero aún no llegó la factura.</p></div>
+      <div class="card"><span class="st st-bad" data-i18n="im.invalid">Invalid invoice</span><p class="mini" style="margin-top:8px" data-i18n="im.invalid.body">No cumple una o más reglas de validación.</p></div>
+      <div class="card"><span class="st st-ok" data-i18n="im.paid">Paid</span><p class="mini" style="margin-top:8px" data-i18n="im.paid.body">Validada y con el pago completado.</p></div>
     </div>
 
   </div>
@@ -109,42 +247,42 @@
 
 <!-- ============ 5. ORGANIZACIÓN Y PLANES ============ -->
 <section id="planes" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Organización y planes <span class="num">05</span></h2><p>Cada organización contrata un plan dimensionado según el volumen estimado de páginas a procesar en todos sus procesos.</p></div></div>
+  <div class="shead"><div><h2><span data-i18n="planes.h2">Organización y planes</span> <span class="num">05</span></h2><p data-i18n="planes.p">Cada organización contrata un plan dimensionado según el volumen estimado de páginas a procesar en todos sus procesos.</p></div></div>
   <div class="sbody">
 
-    <p>El panel de administración muestra, por período vigente: consumo autorizado, consumo total y consumo restante. La vía más común por la que un documento queda <span class="st st-bad" style="vertical-align:middle">Rechazado</span> es, justamente, no tener plan activo o haber agotado el tope de páginas.</p>
+    <p data-i18n-html="planes.intro">El panel de administración muestra, por período vigente: consumo autorizado, consumo total y consumo restante. La vía más común por la que un documento queda <span class="st st-bad" style="vertical-align:middle">Rechazado</span> es, justamente, no tener plan activo o haber agotado el tope de páginas.</p>
 
     <div class="tw">
       <table>
-        <thead><tr><th>Paquete</th><th class="num">Páginas incluidas</th><th class="num">Referencia mensual</th></tr></thead>
+        <thead><tr><th data-i18n="planes.th.paquete">Paquete</th><th class="num" data-i18n="planes.th.paginas">Páginas incluidas</th><th class="num" data-i18n="planes.th.ref">Referencia mensual</th></tr></thead>
         <tbody>
-          <tr><td>Small</td><td class="num">hasta 500</td><td class="num">USD 145</td></tr>
+          <tr><td>Small</td><td class="num" data-i18n="planes.small.pag">hasta 500</td><td class="num">USD 145</td></tr>
           <tr><td>Medium</td><td class="num">501 – 2.000</td><td class="num">USD 260</td></tr>
           <tr><td>Large</td><td class="num">2.001 – 5.000</td><td class="num">USD 475</td></tr>
           <tr><td>XLarge</td><td class="num">5.001 – 10.000</td><td class="num">USD 850</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="mini" style="color:var(--ink3);font-size:.82rem">Paquetes de crédito de referencia por volumen de páginas; el alcance final de cada proyecto se ajusta según los procesos a implementar.</p>
+    <p class="mini" style="color:var(--ink3);font-size:.82rem" data-i18n="planes.nota">Paquetes de crédito de referencia por volumen de páginas; el alcance final de cada proyecto se ajusta según los procesos a implementar.</p>
 
   </div>
 </section>
 
 <!-- ============ 6. CONECTORES ============ -->
 <section id="conectores" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Conectores <span class="num">06</span></h2><p>Un conector es una acción de salida — webhook o código embebido — que se dispara solo cuando el documento queda válido.</p></div></div>
+  <div class="shead"><div><h2><span data-i18n="conectores.h2">Conectores</span> <span class="num">06</span></h2><p data-i18n="conectores.p">Un conector es una acción de salida — webhook o código embebido — que se dispara solo cuando el documento queda válido.</p></div></div>
   <div class="sbody">
 
     <div class="grid g4">
-      <div class="card acc"><h5>Odoo</h5><p class="mini">Envío de datos extraídos, incl. soporte Odoo 16 y 18. Base del módulo Order to Cash.</p></div>
-      <div class="card acc"><h5>AFIP QR Parser</h5><p class="mini">Valida el QR fiscal de la factura contra AFIP (Argentina).</p></div>
-      <div class="card acc"><h5>People Force</h5><p class="mini">Concilia facturas de contratistas contra los sueldos/pagos esperados.</p></div>
-      <div class="card acc"><h5>Catálogo ampliable</h5><p class="mini">Salesforce, Make.com, NetSuite, SAP, Xero — o un conector a medida para cualquier sistema propio.</p></div>
+      <div class="card acc"><h5>Odoo</h5><p class="mini" data-i18n="conn.odoo">Envío de datos extraídos, incl. soporte Odoo 16 y 18. Base del módulo Order to Cash.</p></div>
+      <div class="card acc"><h5>AFIP QR Parser</h5><p class="mini" data-i18n="conn.afip">Valida el QR fiscal de la factura contra AFIP (Argentina).</p></div>
+      <div class="card acc"><h5>People Force</h5><p class="mini" data-i18n="conn.pf">Concilia facturas de contratistas contra los sueldos/pagos esperados.</p></div>
+      <div class="card acc"><h5 data-i18n="conn.catalogo.title">Catálogo ampliable</h5><p class="mini" data-i18n="conn.catalogo.body">Salesforce, Make.com, NetSuite, SAP, Xero — o un conector a medida para cualquier sistema propio.</p></div>
     </div>
 
     <div class="callout c-info" style="margin-top:16px">
-      <b>Si un conector falla</b>
-      El motivo queda visible en la solicitud y puede reintentarse manualmente una vez resuelto — no hace falta volver a cargar el documento.
+      <b data-i18n="callout.conector.title">Si un conector falla</b>
+      <span data-i18n="callout.conector.body">El motivo queda visible en la solicitud y puede reintentarse manualmente una vez resuelto — no hace falta volver a cargar el documento.</span>
     </div>
 
   </div>
@@ -152,41 +290,41 @@
 
 <!-- ============ 7. MÓDULOS DE NEGOCIO ============ -->
 <section id="modulos" style="--accent:var(--c-comportamiento)">
-  <div class="shead"><div><h2>Módulos de negocio <span class="num">07</span></h2><p>Paquetes reutilizables construidos sobre el motor base de DocuGPT para procesos específicos.</p></div></div>
+  <div class="shead"><div><h2><span data-i18n="modulos.h2">Módulos de negocio</span> <span class="num">07</span></h2><p data-i18n="modulos.p">Paquetes reutilizables construidos sobre el motor base de DocuGPT para procesos específicos.</p></div></div>
   <div class="sbody">
 
     <div class="flowcard">
       <div class="fh">
         <h5>Invoice Matching</h5>
-        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px">Finanzas</span>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px" data-i18n="tag.finanzas">Finanzas</span>
       </div>
       <div class="fb">
-        <p>Concilia facturas de proveedores o contratistas contra los datos de pago esperados, y expone las diferencias que requieren revisión.</p>
-        <div class="frow"><div class="lab">01</div><div><strong>Pago esperado</strong><p class="mini" style="margin-top:2px">El sistema de RR.HH. aporta el registro del contratista y el monto esperado del período.</p></div></div>
-        <div class="frow"><div class="lab">02</div><div><strong>Datos de factura</strong><p class="mini" style="margin-top:2px">DocuGPT procesa la factura y extrae la información para la conciliación.</p></div></div>
-        <div class="frow"><div class="lab">03</div><div><strong>Matching</strong><p class="mini" style="margin-top:2px">Compara monto facturado vs. esperado y marca la diferencia.</p></div></div>
-        <p class="mini" style="margin-top:14px">Salida: vista consolidada por estado, reportes y lotes de pago, recordatorios de facturas pendientes, exportación a sistemas contables y filtros por estado, área o lote.</p>
+        <p data-i18n="im.desc">Concilia facturas de proveedores o contratistas contra los datos de pago esperados, y expone las diferencias que requieren revisión.</p>
+        <div class="frow"><div class="lab">01</div><div><strong data-i18n="im.s1.title">Pago esperado</strong><p class="mini" style="margin-top:2px" data-i18n="im.s1.body">El sistema de RR.HH. aporta el registro del contratista y el monto esperado del período.</p></div></div>
+        <div class="frow"><div class="lab">02</div><div><strong data-i18n="im.s2.title">Datos de factura</strong><p class="mini" style="margin-top:2px" data-i18n="im.s2.body">DocuGPT procesa la factura y extrae la información para la conciliación.</p></div></div>
+        <div class="frow"><div class="lab">03</div><div><strong data-i18n="im.s3.title">Matching</strong><p class="mini" style="margin-top:2px" data-i18n="im.s3.body">Compara monto facturado vs. esperado y marca la diferencia.</p></div></div>
+        <p class="mini" style="margin-top:14px" data-i18n="im.salida">Salida: vista consolidada por estado, reportes y lotes de pago, recordatorios de facturas pendientes, exportación a sistemas contables y filtros por estado, área o lote.</p>
         <div class="impact">
-          <div><div class="num">−89%</div><div class="lbl">tiempo de procesamiento (18h → 2h/mes)</div></div>
-          <div><div class="num">120</div><div class="lbl">facturas de contratistas automatizadas / mes</div></div>
+          <div><div class="num">−89%</div><div class="lbl" data-i18n="im.impact1">tiempo de procesamiento (18h → 2h/mes)</div></div>
+          <div><div class="num">120</div><div class="lbl" data-i18n="im.impact2">facturas de contratistas automatizadas / mes</div></div>
         </div>
       </div>
     </div>
 
     <div class="flowcard">
       <div class="fh">
-        <h5>CV Matching &amp; Processor</h5>
-        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px">Talento</span>
+        <h5 data-i18n="cv.title">CV Matching &amp; Processor</h5>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px" data-i18n="tag.talento">Talento</span>
       </div>
       <div class="fb">
-        <p>Compara la información de un CV contra los requisitos de una búsqueda para agilizar y estandarizar la revisión de candidatos.</p>
-        <div class="frow"><div class="lab">01</div><div><strong>Perfil de vacante</strong><p class="mini" style="margin-top:2px">Rol activo, descripción del puesto, skills y atributos requeridos.</p></div></div>
-        <div class="frow"><div class="lab">02</div><div><strong>Plantilla</strong><p class="mini" style="margin-top:2px">Documento Google Docs y carpeta de Drive donde se genera el perfil estandarizado.</p></div></div>
-        <div class="frow"><div class="lab">03</div><div><strong>CVs</strong><p class="mini" style="margin-top:2px">Se importan desde Drive o archivos locales para su análisis por IA.</p></div></div>
-        <p class="mini" style="margin-top:14px">La IA evalúa cada CV contra la vacante y genera un <strong>match score</strong>; además sugiere perfiles del Talent Bank con solapamiento de skills. La salida incluye el resumen del match, fortalezas y brechas, el CV estandarizado guardado en Drive, y un chatbot para pedir acciones en lenguaje natural sobre los perfiles.</p>
+        <p data-i18n="cv.desc">Compara la información de un CV contra los requisitos de una búsqueda para agilizar y estandarizar la revisión de candidatos.</p>
+        <div class="frow"><div class="lab">01</div><div><strong data-i18n="cv.s1.title">Perfil de vacante</strong><p class="mini" style="margin-top:2px" data-i18n="cv.s1.body">Rol activo, descripción del puesto, skills y atributos requeridos.</p></div></div>
+        <div class="frow"><div class="lab">02</div><div><strong data-i18n="cv.s2.title">Plantilla</strong><p class="mini" style="margin-top:2px" data-i18n="cv.s2.body">Documento Google Docs y carpeta de Drive donde se genera el perfil estandarizado.</p></div></div>
+        <div class="frow"><div class="lab">03</div><div><strong data-i18n="cv.s3.title">CVs</strong><p class="mini" style="margin-top:2px" data-i18n="cv.s3.body">Se importan desde Drive o archivos locales para su análisis por IA.</p></div></div>
+        <p class="mini" style="margin-top:14px" data-i18n-html="cv.salida">La IA evalúa cada CV contra la vacante y genera un <strong>match score</strong>; además sugiere perfiles del Talent Bank con solapamiento de skills. La salida incluye el resumen del match, fortalezas y brechas, el CV estandarizado guardado en Drive, y un chatbot para pedir acciones en lenguaje natural sobre los perfiles.</p>
         <div class="impact">
-          <div><div class="num">−87%</div><div class="lbl">tiempo de preparación (7.5h → 1h/mes)</div></div>
-          <div><div class="num">30</div><div class="lbl">CVs auto-convertidos / mes</div></div>
+          <div><div class="num">−87%</div><div class="lbl" data-i18n="cv.impact1">tiempo de preparación (7.5h → 1h/mes)</div></div>
+          <div><div class="num">30</div><div class="lbl" data-i18n="cv.impact2">CVs auto-convertidos / mes</div></div>
         </div>
       </div>
     </div>
@@ -194,10 +332,10 @@
     <div class="flowcard">
       <div class="fh">
         <h5>Order to Cash</h5>
-        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px">Plugin Odoo</span>
+        <span style="font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card));padding:3px 10px;border-radius:999px" data-i18n="tag.odoo">Plugin Odoo</span>
       </div>
       <div class="fb">
-        <p style="margin:0">Compara la factura recibida contra la recepción de bienes o servicios (remito) asociada a la orden de compra. Muestra los casos con 100% de coincidencia y los que tienen diferencias, para que el analista los revise.</p>
+        <p style="margin:0" data-i18n="otc.desc">Compara la factura recibida contra la recepción de bienes o servicios (remito) asociada a la orden de compra. Muestra los casos con 100% de coincidencia y los que tienen diferencias, para que el analista los revise.</p>
       </div>
     </div>
 
@@ -207,18 +345,107 @@
 </div><!-- /wrap -->
 
 <div class="pager">
-  <a class="prev" href="index.html#roles"><span class="d">Anterior</span><span class="t">← Producto</span></a>
-  <a class="next" href="medicion.html#metricas"><span class="d">Siguiente</span><span class="t">Medición →</span></a>
+  <a class="prev" href="index.html#roles"><span class="d" data-i18n="pager.anterior">Anterior</span><span class="t" data-i18n="comportamiento.pager.prev">← Producto</span></a>
+  <a class="next" href="medicion.html#metricas"><span class="d" data-i18n="pager.siguiente">Siguiente</span><span class="t" data-i18n="comportamiento.pager.next">Medición →</span></a>
 </div>
 
 <footer>
   <div class="wrap" style="padding:0">
-    <p>© Nybble Group 2026 — Confidencial y de uso interno. Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></p>
+    <p data-i18n-html="footer.full">© Nybble Group 2026 — Confidencial y de uso interno. Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></p>
   </div>
 </footer>
 
 </main>
 </div><!-- /shell -->
-<a class="toplink" href="#estados">↑ Arriba</a>
+<a class="toplink" href="#estados" data-i18n="toplink.top">↑ Arriba</a>
+
+<script src="assets/i18n.js"></script>
+<script>
+initI18n({
+  "page.title": { es: "DocuGPT · Comportamiento", en: "DocuGPT · Behavior" },
+  "ph.crumb": { es: "Comportamiento", en: "Behavior" },
+  "ph.h1": { es: "Comportamiento", en: "Behavior" },
+  "ph.p": { es: "Cómo se mueve el estado de un documento de punta a punta, y los flujos funcionales concretos que lo rodean: planes, conectores y módulos de negocio.", en: "How a document's state moves end to end, and the concrete functional flows around it: plans, connectors, and business modules." },
+  "estados.h2": { es: "Ciclo de vida de un documento", en: "Document Lifecycle" },
+  "estados.p": { es: "De archivo a dato accionable: las cuatro etapas que recorre todo documento, y el estado que va tomando en cada una.", en: "From file to actionable data: the four stages every document goes through, and the state it takes on at each one." },
+  "estados.h3.etapas": { es: "Las cuatro etapas", en: "The four stages" },
+  "et1.title": { es: "Ingesta", en: "Ingestion" },
+  "et1.body": { es: "El documento llega por casilla de email, se sube a mano o se lee desde Drive/API.", en: "The document arrives by email inbox, gets uploaded manually, or is read from Drive/API." },
+  "et2.title": { es: "Clasificación", en: "Classification" },
+  "et2.body": { es: "La organización lo asocia a un <strong>tipo de contenido</strong>: el esquema de campos e instrucciones que le corresponde.", en: "The organization maps it to a <strong>content type</strong>: the field schema and instructions that apply to it." },
+  "et3.title": { es: "Extracción y validación", en: "Extraction & validation" },
+  "et3.body": { es: "El motor extrae los datos, calcula un <strong>confidence score</strong> por campo y valida contra las reglas configuradas.", en: "The engine extracts the data, calculates a <strong>confidence score</strong> per field, and validates it against the configured rules." },
+  "et4.title": { es: "Conectores", en: "Connectors" },
+  "et4.body": { es: "Si el documento queda <strong>válido</strong>, se disparan las integraciones de salida hacia otros sistemas.", en: "If the document ends up <strong>valid</strong>, the outbound integrations to other systems fire." },
+  "estados.h3.estado": { es: "Qué estado toma el documento", en: "What state the document takes on" },
+  "st.pendiente": { es: "Pendiente", en: "Pending" },
+  "st.procesando": { es: "Procesando", en: "Processing" },
+  "st.valido": { es: "Válido → dispara conectores", en: "Valid → triggers connectors" },
+  "st.revision": { es: "En revisión (falta un dato)", en: "In review (missing a field)" },
+  "st.rechazado": { es: "Rechazado (sin plan / créditos)", en: "Rejected (no plan / credits)" },
+  "callout.falla.title": { es: "Si el procesamiento falla", en: "If processing fails" },
+  "callout.falla.body": { es: "Por falta de plan activo, créditos agotados o un dato requerido faltante, el documento queda «pendiente» o «en revisión» y el motivo se muestra al usuario para que lo resuelva.", en: "Because of no active plan, exhausted credits, or a missing required field, the document ends up “pending” or “in review,” and the reason is shown to the user to resolve." },
+  "estados.h3.ejemplo": { es: "Ejemplo: clasificación de negocio en Invoice Matching", en: "Example: business classification in Invoice Matching" },
+  "estados.ejemplo.p": { es: "Un módulo como Invoice Matching traduce ese estado general a una clasificación más específica para el analista que revisa facturas:", en: "A module like Invoice Matching translates that general state into a more specific classification for the analyst reviewing invoices:" },
+  "im.rfp": { es: "Ready for payment", en: "Ready for payment" },
+  "im.rfp.body": { es: "La factura coincide con lo esperado.", en: "The invoice matches what was expected." },
+  "im.review": { es: "Review", en: "Review" },
+  "im.review.body": { es: "Hay una diferencia que requiere validación humana.", en: "There's a discrepancy that needs human validation." },
+  "im.unident": { es: "Unidentified", en: "Unidentified" },
+  "im.unident.body": { es: "No se puede vincular a un registro esperado.", en: "It can't be linked to an expected record." },
+  "im.notrec": { es: "Invoice not received", en: "Invoice not received" },
+  "im.notrec.body": { es: "Hay un pago esperado, pero aún no llegó la factura.", en: "A payment is expected, but the invoice hasn't arrived yet." },
+  "im.invalid": { es: "Invalid invoice", en: "Invalid invoice" },
+  "im.invalid.body": { es: "No cumple una o más reglas de validación.", en: "It fails one or more validation rules." },
+  "im.paid": { es: "Paid", en: "Paid" },
+  "im.paid.body": { es: "Validada y con el pago completado.", en: "Validated and with payment completed." },
+  "planes.h2": { es: "Organización y planes", en: "Organization & Plans" },
+  "planes.p": { es: "Cada organización contrata un plan dimensionado según el volumen estimado de páginas a procesar en todos sus procesos.", en: "Each organization subscribes to a plan sized to the estimated page volume across all its processes." },
+  "planes.intro": { es: 'El panel de administración muestra, por período vigente: consumo autorizado, consumo total y consumo restante. La vía más común por la que un documento queda <span class="st st-bad" style="vertical-align:middle">Rechazado</span> es, justamente, no tener plan activo o haber agotado el tope de páginas.', en: 'The admin panel shows, for the current period: authorized usage, total usage, and remaining usage. The most common reason a document ends up <span class="st st-bad" style="vertical-align:middle">Rejected</span> is, precisely, not having an active plan or having hit the page cap.' },
+  "planes.th.paquete": { es: "Paquete", en: "Package" },
+  "planes.th.paginas": { es: "Páginas incluidas", en: "Pages included" },
+  "planes.th.ref": { es: "Referencia mensual", en: "Monthly reference" },
+  "planes.small.pag": { es: "hasta 500", en: "up to 500" },
+  "planes.nota": { es: "Paquetes de crédito de referencia por volumen de páginas; el alcance final de cada proyecto se ajusta según los procesos a implementar.", en: "Reference credit packages by page volume; each project's final scope is adjusted based on the processes being implemented." },
+  "conectores.h2": { es: "Conectores", en: "Connectors" },
+  "conectores.p": { es: "Un conector es una acción de salida — webhook o código embebido — que se dispara solo cuando el documento queda válido.", en: "A connector is an outbound action — webhook or embedded code — that only fires once the document ends up valid." },
+  "conn.odoo": { es: "Envío de datos extraídos, incl. soporte Odoo 16 y 18. Base del módulo Order to Cash.", en: "Sends extracted data, incl. Odoo 16 and 18 support. Backbone of the Order to Cash module." },
+  "conn.afip": { es: "Valida el QR fiscal de la factura contra AFIP (Argentina).", en: "Validates the invoice's fiscal QR against AFIP (Argentina's tax authority)." },
+  "conn.pf": { es: "Concilia facturas de contratistas contra los sueldos/pagos esperados.", en: "Reconciles contractor invoices against expected pay." },
+  "conn.catalogo.title": { es: "Catálogo ampliable", en: "Expandable catalog" },
+  "conn.catalogo.body": { es: "Salesforce, Make.com, NetSuite, SAP, Xero — o un conector a medida para cualquier sistema propio.", en: "Salesforce, Make.com, NetSuite, SAP, Xero — or a custom connector for any in-house system." },
+  "callout.conector.title": { es: "Si un conector falla", en: "If a connector fails" },
+  "callout.conector.body": { es: "El motivo queda visible en la solicitud y puede reintentarse manualmente una vez resuelto — no hace falta volver a cargar el documento.", en: "The reason stays visible on the request and it can be retried manually once resolved — no need to re-upload the document." },
+  "modulos.h2": { es: "Módulos de negocio", en: "Business Modules" },
+  "modulos.p": { es: "Paquetes reutilizables construidos sobre el motor base de DocuGPT para procesos específicos.", en: "Reusable packages built on top of DocuGPT's core engine for specific processes." },
+  "tag.finanzas": { es: "Finanzas", en: "Finance" },
+  "im.desc": { es: "Concilia facturas de proveedores o contratistas contra los datos de pago esperados, y expone las diferencias que requieren revisión.", en: "Reconciles vendor or contractor invoices against expected payment data, and surfaces the differences that need review." },
+  "im.s1.title": { es: "Pago esperado", en: "Expected payment" },
+  "im.s1.body": { es: "El sistema de RR.HH. aporta el registro del contratista y el monto esperado del período.", en: "The HR system provides the contractor's record and the expected amount for the period." },
+  "im.s2.title": { es: "Datos de factura", en: "Invoice data" },
+  "im.s2.body": { es: "DocuGPT procesa la factura y extrae la información para la conciliación.", en: "DocuGPT processes the invoice and extracts the information needed for reconciliation." },
+  "im.s3.title": { es: "Matching", en: "Matching" },
+  "im.s3.body": { es: "Compara monto facturado vs. esperado y marca la diferencia.", en: "Compares billed vs. expected amount and flags the difference." },
+  "im.salida": { es: "Salida: vista consolidada por estado, reportes y lotes de pago, recordatorios de facturas pendientes, exportación a sistemas contables y filtros por estado, área o lote.", en: "Output: a consolidated view by status, reports and payment batches, pending-invoice reminders, export to accounting systems, and filters by status, area, or batch." },
+  "im.impact1": { es: "tiempo de procesamiento (18h → 2h/mes)", en: "processing time (18h → 2h/month)" },
+  "im.impact2": { es: "facturas de contratistas automatizadas / mes", en: "contractor invoices automated / month" },
+  "cv.title": { es: "CV Matching & Processor", en: "CV Matching & Processor" },
+  "tag.talento": { es: "Talento", en: "Talent" },
+  "cv.desc": { es: "Compara la información de un CV contra los requisitos de una búsqueda para agilizar y estandarizar la revisión de candidatos.", en: "Compares a résumé's information against a search's requirements to speed up and standardize candidate review." },
+  "cv.s1.title": { es: "Perfil de vacante", en: "Job profile" },
+  "cv.s1.body": { es: "Rol activo, descripción del puesto, skills y atributos requeridos.", en: "Open role, job description, required skills and attributes." },
+  "cv.s2.title": { es: "Plantilla", en: "Template" },
+  "cv.s2.body": { es: "Documento Google Docs y carpeta de Drive donde se genera el perfil estandarizado.", en: "Google Docs document and Drive folder where the standardized profile is generated." },
+  "cv.s3.title": { es: "CVs", en: "Résumés" },
+  "cv.s3.body": { es: "Se importan desde Drive o archivos locales para su análisis por IA.", en: "Imported from Drive or local files for AI analysis." },
+  "cv.salida": { es: "La IA evalúa cada CV contra la vacante y genera un <strong>match score</strong>; además sugiere perfiles del Talent Bank con solapamiento de skills. La salida incluye el resumen del match, fortalezas y brechas, el CV estandarizado guardado en Drive, y un chatbot para pedir acciones en lenguaje natural sobre los perfiles.", en: "The AI evaluates each résumé against the role and generates a <strong>match score</strong>; it also suggests Talent Bank profiles with overlapping skills. The output includes a match summary, strengths and gaps, the standardized résumé saved to Drive, and a chatbot for natural-language actions on profiles." },
+  "cv.impact1": { es: "tiempo de preparación (7.5h → 1h/mes)", en: "prep time (7.5h → 1h/month)" },
+  "cv.impact2": { es: "CVs auto-convertidos / mes", en: "résumés auto-converted / month" },
+  "tag.odoo": { es: "Plugin Odoo", en: "Odoo Plugin" },
+  "otc.desc": { es: "Compara la factura recibida contra la recepción de bienes o servicios (remito) asociada a la orden de compra. Muestra los casos con 100% de coincidencia y los que tienen diferencias, para que el analista los revise.", en: "Compares the received invoice against the goods/services receipt (delivery note) tied to the purchase order. Shows the cases with a 100% match and those with differences, for the analyst to review." },
+  "comportamiento.pager.prev": { es: "← Producto", en: "← Product" },
+  "comportamiento.pager.next": { es: "Medición →", en: "Measurement →" }
+});
+</script>
 </body>
 </html>

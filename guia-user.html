@@ -3,94 +3,232 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DocuGPT · Guía User</title>
+<title data-i18n="page.title">DocuGPT · Guía User</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Sora:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="shell">
 
 <nav class="side">
-  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
+  <div class="brand">
+    <svg class="nybble-mark" width="26" height="26" viewBox="0 0 36 36" aria-hidden="true">
+      <circle cx="6" cy="6" r="3.4"/><circle cx="18" cy="6" r="3.4"/><circle cx="30" cy="6" r="3.4"/>
+      <circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="18" r="2.6"/><circle cx="30" cy="18" r="2.6"/>
+      <circle cx="6" cy="30" r="3.4"/><circle cx="18" cy="30" r="2.6"/><circle cx="30" cy="30" r="2.6"/>
+      <path d="M6 6 C14 14, 22 22, 30 30"/>
+    </svg>
+    <div class="brand-text"><b>DocuGPT</b><span data-i18n="nav.brandTag">Guía funcional · Nybble Group</span></div>
+  </div>
 
-  <div class="grp">Producto</div>
-  <a href="index.html#resumen"><i>1</i>Resumen</a>
-  <a href="index.html#conceptos"><i>2</i>Conceptos clave</a>
-  <a href="index.html#roles"><i>3</i>Roles y permisos</a>
+  <div class="langtoggle" role="group" aria-label="Language / Idioma">
+    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+  </div>
 
-  <div class="grp">Comportamiento</div>
-  <a href="comportamiento.html#estados"><i>4</i>Ciclo de vida del documento</a>
-  <a href="comportamiento.html#planes"><i>5</i>Organización y planes</a>
-  <a href="comportamiento.html#conectores"><i>6</i>Conectores</a>
-  <a href="comportamiento.html#modulos"><i>7</i>Módulos de negocio</a>
+  <div class="grp" data-i18n="nav.grp.producto">Producto</div>
+  <a href="index.html#resumen"><i>1</i><span data-i18n="nav.link.resumen">Resumen</span></a>
+  <a href="index.html#conceptos"><i>2</i><span data-i18n="nav.link.conceptos">Conceptos clave</span></a>
+  <a href="index.html#roles"><i>3</i><span data-i18n="nav.link.roles">Roles y permisos</span></a>
 
-  <div class="grp">Medición</div>
-  <a href="medicion.html#metricas"><i>8</i>Métricas de impacto</a>
-  <a href="medicion.html#tecnico"><i>9</i>Notas técnicas</a>
+  <div class="grp" data-i18n="nav.grp.comportamiento">Comportamiento</div>
+  <a href="comportamiento.html#estados"><i>4</i><span data-i18n="nav.link.estados">Ciclo de vida del documento</span></a>
+  <a href="comportamiento.html#planes"><i>5</i><span data-i18n="nav.link.planes">Organización y planes</span></a>
+  <a href="comportamiento.html#conectores"><i>6</i><span data-i18n="nav.link.conectores">Conectores</span></a>
+  <a href="comportamiento.html#modulos"><i>7</i><span data-i18n="nav.link.modulos">Módulos de negocio</span></a>
 
-  <div class="grp is-here">Guías</div>
-  <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
-  <a href="guia-user.html" class="is-here"><i>★</i>Guía · User</a>
+  <div class="grp" data-i18n="nav.grp.medicion">Medición</div>
+  <a href="medicion.html#metricas"><i>8</i><span data-i18n="nav.link.metricas">Métricas de impacto</span></a>
+  <a href="medicion.html#tecnico"><i>9</i><span data-i18n="nav.link.tecnico">Notas técnicas</span></a>
+
+  <div class="grp is-here" data-i18n="nav.grp.guias">Guías</div>
+  <a href="guia-owner.html"><i>★</i><span data-i18n="nav.link.guiaOwner">Guía · Owner</span></a>
+  <a href="guia-user.html" class="is-here"><i>★</i><span data-i18n="nav.link.guiaUser">Guía · User</span></a>
 </nav>
 
 <main>
 <header class="pagehead" style="--accent:var(--c-product)">
+  <div class="mesh">
+<svg viewBox="0 0 960 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--ink3)" stroke-width="1">
+<g stroke="var(--ink3)">
+<path d="M15.0 31.3 L105.0 44.0"/>
+<path d="M15.0 31.3 L60.0 87.7"/>
+<path d="M105.0 44.0 L195.0 38.9"/>
+<path d="M105.0 44.0 L150.0 91.1"/>
+<path d="M195.0 38.9 L285.0 46.1"/>
+<path d="M195.0 38.9 L240.0 98.9"/>
+<path d="M285.0 46.1 L375.0 49.0"/>
+<path d="M285.0 46.1 L330.0 85.0"/>
+<path d="M375.0 49.0 L465.0 33.0"/>
+<path d="M375.0 49.0 L420.0 78.4"/>
+<path d="M465.0 33.0 L555.0 30.9"/>
+<path d="M465.0 33.0 L510.0 79.2"/>
+<path d="M555.0 30.9 L645.0 28.0"/>
+<path d="M555.0 30.9 L600.0 63.1"/>
+<path d="M645.0 28.0 L735.0 11.5"/>
+<path d="M645.0 28.0 L690.0 59.9"/>
+<path d="M735.0 11.5 L825.0 14.4"/>
+<path d="M735.0 11.5 L780.0 68.5"/>
+<path d="M825.0 14.4 L915.0 20.3"/>
+<path d="M825.0 14.4 L870.0 62.8"/>
+<path d="M915.0 20.3 L960.0 70.4"/>
+<path d="M60.0 87.7 L150.0 91.1"/>
+<path d="M60.0 87.7 L15.0 146.7"/>
+<path d="M150.0 91.1 L240.0 98.9"/>
+<path d="M150.0 91.1 L105.0 141.2"/>
+<path d="M240.0 98.9 L330.0 85.0"/>
+<path d="M240.0 98.9 L195.0 133.1"/>
+<path d="M330.0 85.0 L420.0 78.4"/>
+<path d="M330.0 85.0 L285.0 136.9"/>
+<path d="M420.0 78.4 L510.0 79.2"/>
+<path d="M420.0 78.4 L375.0 123.0"/>
+<path d="M510.0 79.2 L600.0 63.1"/>
+<path d="M510.0 79.2 L465.0 111.4"/>
+<path d="M600.0 63.1 L690.0 59.9"/>
+<path d="M600.0 63.1 L555.0 116.8"/>
+<path d="M690.0 59.9 L780.0 68.5"/>
+<path d="M690.0 59.9 L645.0 109.4"/>
+<path d="M780.0 68.5 L870.0 62.8"/>
+<path d="M780.0 68.5 L735.0 107.9"/>
+<path d="M870.0 62.8 L960.0 70.4"/>
+<path d="M870.0 62.8 L825.0 124.2"/>
+<path d="M960.0 70.4 L915.0 125.7"/>
+<path d="M15.0 146.7 L105.0 141.2"/>
+<path d="M15.0 146.7 L60.0 181.6"/>
+<path d="M105.0 141.2 L195.0 133.1"/>
+<path d="M105.0 141.2 L150.0 185.3"/>
+<path d="M195.0 133.1 L285.0 136.9"/>
+<path d="M195.0 133.1 L240.0 176.4"/>
+<path d="M285.0 136.9 L375.0 123.0"/>
+<path d="M285.0 136.9 L330.0 160.4"/>
+<path d="M375.0 123.0 L465.0 111.4"/>
+<path d="M375.0 123.0 L420.0 164.1"/>
+<path d="M465.0 111.4 L555.0 116.8"/>
+<path d="M465.0 111.4 L510.0 160.3"/>
+<path d="M555.0 116.8 L645.0 109.4"/>
+<path d="M555.0 116.8 L600.0 153.6"/>
+<path d="M645.0 109.4 L735.0 107.9"/>
+<path d="M645.0 109.4 L690.0 168.3"/>
+<path d="M735.0 107.9 L825.0 124.2"/>
+<path d="M735.0 107.9 L780.0 174.2"/>
+<path d="M825.0 124.2 L915.0 125.7"/>
+<path d="M825.0 124.2 L870.0 173.9"/>
+<path d="M915.0 125.7 L960.0 190.1"/>
+<path d="M60.0 181.6 L150.0 185.3"/>
+<path d="M150.0 185.3 L240.0 176.4"/>
+<path d="M240.0 176.4 L330.0 160.4"/>
+<path d="M330.0 160.4 L420.0 164.1"/>
+<path d="M420.0 164.1 L510.0 160.3"/>
+<path d="M510.0 160.3 L600.0 153.6"/>
+<path d="M600.0 153.6 L690.0 168.3"/>
+<path d="M690.0 168.3 L780.0 174.2"/>
+<path d="M780.0 174.2 L870.0 173.9"/>
+<path d="M870.0 173.9 L960.0 190.1"/>
+</g>
+<g fill="var(--ink3)" stroke="none">
+<circle cx="15.0" cy="31.3" r="1.6"/>
+<circle cx="105.0" cy="44.0" r="1.6"/>
+<circle cx="195.0" cy="38.9" r="2.6"/>
+<circle cx="285.0" cy="46.1" r="1.6"/>
+<circle cx="375.0" cy="49.0" r="3.2"/>
+<circle cx="465.0" cy="33.0" r="1.6"/>
+<circle cx="555.0" cy="30.9" r="1.6"/>
+<circle cx="645.0" cy="28.0" r="1.6"/>
+<circle cx="735.0" cy="11.5" r="1.6"/>
+<circle cx="825.0" cy="14.4" r="1.6"/>
+<circle cx="915.0" cy="20.3" r="1.6"/>
+<circle cx="60.0" cy="87.7" r="1.6"/>
+<circle cx="150.0" cy="91.1" r="1.6"/>
+<circle cx="240.0" cy="98.9" r="1.6"/>
+<circle cx="330.0" cy="85.0" r="1.6"/>
+<circle cx="420.0" cy="78.4" r="1.6"/>
+<circle cx="510.0" cy="79.2" r="1.6"/>
+<circle cx="600.0" cy="63.1" r="3.2"/>
+<circle cx="690.0" cy="59.9" r="1.6"/>
+<circle cx="780.0" cy="68.5" r="2.6"/>
+<circle cx="870.0" cy="62.8" r="1.6"/>
+<circle cx="960.0" cy="70.4" r="1.6"/>
+<circle cx="15.0" cy="146.7" r="1.6"/>
+<circle cx="105.0" cy="141.2" r="1.6"/>
+<circle cx="195.0" cy="133.1" r="1.6"/>
+<circle cx="285.0" cy="136.9" r="1.6"/>
+<circle cx="375.0" cy="123.0" r="1.6"/>
+<circle cx="465.0" cy="111.4" r="1.6"/>
+<circle cx="555.0" cy="116.8" r="1.6"/>
+<circle cx="645.0" cy="109.4" r="1.6"/>
+<circle cx="735.0" cy="107.9" r="3.2"/>
+<circle cx="825.0" cy="124.2" r="1.6"/>
+<circle cx="915.0" cy="125.7" r="1.6"/>
+<circle cx="60.0" cy="181.6" r="1.6"/>
+<circle cx="150.0" cy="185.3" r="1.6"/>
+<circle cx="240.0" cy="176.4" r="1.6"/>
+<circle cx="330.0" cy="160.4" r="2.6"/>
+<circle cx="420.0" cy="164.1" r="1.6"/>
+<circle cx="510.0" cy="160.3" r="1.6"/>
+<circle cx="600.0" cy="153.6" r="1.6"/>
+<circle cx="690.0" cy="168.3" r="1.6"/>
+<circle cx="780.0" cy="174.2" r="1.6"/>
+<circle cx="870.0" cy="173.9" r="1.6"/>
+<circle cx="960.0" cy="190.1" r="3.2"/>
+</g>
+</svg>
+  </div>
   <div class="wrap">
-    <div class="crumb"><a href="index.html">DocuGPT</a> · Guía · User</div>
-    <h1>Guía para <span class="b b-user" style="font-size:1.1rem;padding:3px 12px;vertical-align:middle">User</span></h1>
-    <p>Cómo cargar un documento en DocuGPT y entender qué significa cada estado.</p>
+    <div class="crumb"><a href="index.html">DocuGPT</a> · <span data-i18n="ph.crumb">Guía · User</span></div>
+    <h1><span data-i18n="ph.h1.pre">Guía para</span> <span class="b b-user" style="font-size:1.1rem;padding:3px 12px;vertical-align:middle">User</span></h1>
+    <p data-i18n="ph.p">Cómo cargar un documento en DocuGPT y entender qué significa cada estado.</p>
   </div>
 </header>
 
 <div class="wrap">
 
 <div class="callout c-info">
-  <b>Antes de usar esta guía</b>
-  Describe el flujo tal como está documentado a nivel de producto. Validá los pasos exactos (nombres de botones y pantallas) contra la app en vivo antes de compartirla con usuarios del piloto.
+  <b data-i18n="disclaimer.title">Antes de usar esta guía</b>
+  <span data-i18n="disclaimer.body">Describe el flujo tal como está documentado a nivel de producto. Validá los pasos exactos (nombres de botones y pantallas) contra la app en vivo antes de compartirla con usuarios del piloto.</span>
 </div>
 
 <section id="pasos" style="--accent:var(--c-product)">
-  <div class="shead"><div><h2>Cargar y consultar un documento, paso a paso</h2><p>Lo que podés hacer como User: cargar documentos y ver su estado. La configuración la maneja el Owner de tu organización.</p></div></div>
+  <div class="shead"><div><h2 data-i18n="pasos.h2">Cargar y consultar un documento, paso a paso</h2><p data-i18n="pasos.p">Lo que podés hacer como User: cargar documentos y ver su estado. La configuración la maneja el Owner de tu organización.</p></div></div>
   <div class="sbody">
 
     <div class="steps" data-steps>
       <div class="steps-nav" role="tablist" aria-label="Pasos de la guía User">
-        <button class="steps-tab is-active" role="tab" aria-selected="true" data-step="1"><span class="steps-tab-n">1</span>Cargar</button>
-        <button class="steps-tab" role="tab" aria-selected="false" data-step="2"><span class="steps-tab-n">2</span>Consultar estado</button>
-        <button class="steps-tab" role="tab" aria-selected="false" data-step="3"><span class="steps-tab-n">3</span>Si algo falla</button>
+        <button class="steps-tab is-active" role="tab" aria-selected="true" data-step="1"><span class="steps-tab-n">1</span><span data-i18n="tab1">Cargar</span></button>
+        <button class="steps-tab" role="tab" aria-selected="false" data-step="2"><span class="steps-tab-n">2</span><span data-i18n="tab2">Consultar estado</span></button>
+        <button class="steps-tab" role="tab" aria-selected="false" data-step="3"><span class="steps-tab-n">3</span><span data-i18n="tab3">Si algo falla</span></button>
       </div>
 
       <div class="steps-panel is-active" role="tabpanel" data-step-panel="1">
-        <h5>Paso 1 · Cargar un documento</h5>
+        <h5 data-i18n="p1.h5">Paso 1 · Cargar un documento</h5>
         <ol>
-          <li>Subilo a mano desde DocuGPT, enviálo a la casilla de email de tu organización, o dejá que se lea automáticamente desde Drive/API si tu Owner lo configuró así.</li>
-          <li>Formatos admitidos: PDF, PNG, JPG.</li>
-          <li>El documento arranca en estado <span class="st st-pend" style="vertical-align:middle">Pendiente</span> y pasa a <span class="st st-proc" style="vertical-align:middle">Procesando</span> automáticamente.</li>
+          <li data-i18n="p1.li1">Subilo a mano desde DocuGPT, enviálo a la casilla de email de tu organización, o dejá que se lea automáticamente desde Drive/API si tu Owner lo configuró así.</li>
+          <li data-i18n="p1.li2">Formatos admitidos: PDF, PNG, JPG.</li>
+          <li data-i18n-html="p1.li3">El documento arranca en estado <span class="st st-pend" style="vertical-align:middle">Pendiente</span> y pasa a <span class="st st-proc" style="vertical-align:middle">Procesando</span> automáticamente.</li>
         </ol>
       </div>
       <div class="steps-panel" role="tabpanel" data-step-panel="2">
-        <h5>Paso 2 · Consultar el estado</h5>
+        <h5 data-i18n="p2.h5">Paso 2 · Consultar el estado</h5>
         <ol>
-          <li><span class="st st-ok" style="vertical-align:middle">Válido</span> — el documento se procesó bien y ya disparó los conectores configurados.</li>
-          <li><span class="st st-rev" style="vertical-align:middle">En revisión</span> — falta un dato requerido; el motivo se muestra junto al documento.</li>
-          <li><span class="st st-bad" style="vertical-align:middle">Rechazado</span> — normalmente por falta de plan activo o créditos agotados en tu organización.</li>
+          <li data-i18n-html="p2.li1"><span class="st st-ok" style="vertical-align:middle">Válido</span> — el documento se procesó bien y ya disparó los conectores configurados.</li>
+          <li data-i18n-html="p2.li2"><span class="st st-rev" style="vertical-align:middle">En revisión</span> — falta un dato requerido; el motivo se muestra junto al documento.</li>
+          <li data-i18n-html="p2.li3"><span class="st st-bad" style="vertical-align:middle">Rechazado</span> — normalmente por falta de plan activo o créditos agotados en tu organización.</li>
         </ol>
       </div>
       <div class="steps-panel" role="tabpanel" data-step-panel="3">
-        <h5>Paso 3 · Qué hacer si el documento no queda válido</h5>
+        <h5 data-i18n="p3.h5">Paso 3 · Qué hacer si el documento no queda válido</h5>
         <ol>
-          <li>Leé el motivo que se muestra junto al documento — te dice exactamente qué falta o qué falló.</li>
-          <li>Si el motivo es de configuración (plan, créditos, reglas de validación), avisale al <span class="b b-owner">Owner</span> de tu organización — vos no podés modificar esos ajustes.</li>
-          <li>Si falta un dato del propio documento, corregilo y volvé a cargarlo.</li>
+          <li data-i18n="p3.li1">Leé el motivo que se muestra junto al documento — te dice exactamente qué falta o qué falló.</li>
+          <li data-i18n-html="p3.li2">Si el motivo es de configuración (plan, créditos, reglas de validación), avisale al <span class="b b-owner">Owner</span> de tu organización — vos no podés modificar esos ajustes.</li>
+          <li data-i18n="p3.li3">Si falta un dato del propio documento, corregilo y volvé a cargarlo.</li>
         </ol>
       </div>
 
       <div class="steps-footer">
-        <button class="steps-prev" disabled>← Anterior</button>
-        <span class="steps-progress">Paso <b data-step-current>1</b> de 3</span>
-        <button class="steps-next">Siguiente →</button>
+        <button class="steps-prev" disabled data-i18n="steps.prev">← Anterior</button>
+        <span class="steps-progress"><span data-i18n="steps.paso">Paso</span> <b data-step-current>1</b> <span data-i18n="steps.de">de</span> 3</span>
+        <button class="steps-next" data-i18n="steps.next">Siguiente →</button>
       </div>
     </div>
 
@@ -100,18 +238,51 @@
 </div><!-- /wrap -->
 
 <div class="pager">
-  <a href="index.html#roles" style="text-align:left"><span class="d">Volver</span><span class="t">← Roles y permisos</span></a>
+  <a href="index.html#roles" style="text-align:left"><span class="d" data-i18n="pager.volver">Volver</span><span class="t" data-i18n="pager.rolesBack">← Roles y permisos</span></a>
 </div>
 
 <footer>
   <div class="wrap" style="padding:0">
-    <p>© Nybble Group 2026 — Confidencial y de uso interno.</p>
+    <p data-i18n="footer.short">© Nybble Group 2026 — Confidencial y de uso interno.</p>
   </div>
 </footer>
 
 </main>
 </div><!-- /shell -->
-<a class="toplink" href="#pasos">↑ Arriba</a>
+<a class="toplink" href="#pasos" data-i18n="toplink.top">↑ Arriba</a>
 <script src="assets/steps.js"></script>
+<script src="assets/i18n.js"></script>
+<script>
+initI18n({
+  "page.title": { es: "DocuGPT · Guía User", en: "DocuGPT · User Guide" },
+  "ph.crumb": { es: "Guía · User", en: "Guide · User" },
+  "ph.h1.pre": { es: "Guía para", en: "Guide for" },
+  "ph.p": { es: "Cómo cargar un documento en DocuGPT y entender qué significa cada estado.", en: "How to upload a document in DocuGPT and understand what each status means." },
+  "disclaimer.title": { es: "Antes de usar esta guía", en: "Before using this guide" },
+  "disclaimer.body": { es: "Describe el flujo tal como está documentado a nivel de producto. Validá los pasos exactos (nombres de botones y pantallas) contra la app en vivo antes de compartirla con usuarios del piloto.", en: "This describes the flow as documented at the product level. Validate the exact steps (button and screen names) against the live app before sharing it with pilot users." },
+  "pasos.h2": { es: "Cargar y consultar un documento, paso a paso", en: "Uploading and checking a document, step by step" },
+  "pasos.p": { es: "Lo que podés hacer como User: cargar documentos y ver su estado. La configuración la maneja el Owner de tu organización.", en: "What you can do as a User: upload documents and check their status. Configuration is handled by your organization's Owner." },
+  "tab1": { es: "Cargar", en: "Upload" },
+  "tab2": { es: "Consultar estado", en: "Check status" },
+  "tab3": { es: "Si algo falla", en: "If something fails" },
+  "p1.h5": { es: "Paso 1 · Cargar un documento", en: "Step 1 · Upload a document" },
+  "p1.li1": { es: "Subilo a mano desde DocuGPT, enviálo a la casilla de email de tu organización, o dejá que se lea automáticamente desde Drive/API si tu Owner lo configuró así.", en: "Upload it manually from DocuGPT, send it to your organization's email inbox, or let it be read automatically from Drive/API if your Owner set it up that way." },
+  "p1.li2": { es: "Formatos admitidos: PDF, PNG, JPG.", en: "Supported formats: PDF, PNG, JPG." },
+  "p1.li3": { es: 'El documento arranca en estado <span class="st st-pend" style="vertical-align:middle">Pendiente</span> y pasa a <span class="st st-proc" style="vertical-align:middle">Procesando</span> automáticamente.', en: 'The document starts in <span class="st st-pend" style="vertical-align:middle">Pending</span> status and moves to <span class="st st-proc" style="vertical-align:middle">Processing</span> automatically.' },
+  "p2.h5": { es: "Paso 2 · Consultar el estado", en: "Step 2 · Check the status" },
+  "p2.li1": { es: '<span class="st st-ok" style="vertical-align:middle">Válido</span> — el documento se procesó bien y ya disparó los conectores configurados.', en: '<span class="st st-ok" style="vertical-align:middle">Valid</span> — the document processed correctly and has already triggered the configured connectors.' },
+  "p2.li2": { es: '<span class="st st-rev" style="vertical-align:middle">En revisión</span> — falta un dato requerido; el motivo se muestra junto al documento.', en: '<span class="st st-rev" style="vertical-align:middle">In review</span> — a required field is missing; the reason is shown next to the document.' },
+  "p2.li3": { es: '<span class="st st-bad" style="vertical-align:middle">Rechazado</span> — normalmente por falta de plan activo o créditos agotados en tu organización.', en: '<span class="st st-bad" style="vertical-align:middle">Rejected</span> — usually because your organization has no active plan or has run out of credits.' },
+  "p3.h5": { es: "Paso 3 · Qué hacer si el documento no queda válido", en: "Step 3 · What to do if the document doesn't end up valid" },
+  "p3.li1": { es: "Leé el motivo que se muestra junto al documento — te dice exactamente qué falta o qué falló.", en: "Read the reason shown next to the document — it tells you exactly what's missing or what failed." },
+  "p3.li2": { es: 'Si el motivo es de configuración (plan, créditos, reglas de validación), avisale al <span class="b b-owner">Owner</span> de tu organización — vos no podés modificar esos ajustes.', en: 'If the reason is a configuration issue (plan, credits, validation rules), let your organization\'s <span class="b b-owner">Owner</span> know — you can\'t change those settings.' },
+  "p3.li3": { es: "Si falta un dato del propio documento, corregilo y volvé a cargarlo.", en: "If the document itself is missing data, fix it and upload it again." },
+  "steps.prev": { es: "← Anterior", en: "← Previous" },
+  "steps.paso": { es: "Paso", en: "Step" },
+  "steps.de": { es: "de", en: "of" },
+  "steps.next": { es: "Siguiente →", en: "Next →" },
+  "pager.rolesBack": { es: "← Roles y permisos", en: "← Roles & Permissions" }
+});
+</script>
 </body>
 </html>

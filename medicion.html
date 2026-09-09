@@ -3,44 +3,182 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DocuGPT · Medición</title>
+<title data-i18n="page.title">DocuGPT · Medición</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Sora:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="shell">
 
 <nav class="side">
-  <div class="brand"><b>DocuGPT</b><span>Guía funcional · Nybble Group</span></div>
+  <div class="brand">
+    <svg class="nybble-mark" width="26" height="26" viewBox="0 0 36 36" aria-hidden="true">
+      <circle cx="6" cy="6" r="3.4"/><circle cx="18" cy="6" r="3.4"/><circle cx="30" cy="6" r="3.4"/>
+      <circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="18" r="2.6"/><circle cx="30" cy="18" r="2.6"/>
+      <circle cx="6" cy="30" r="3.4"/><circle cx="18" cy="30" r="2.6"/><circle cx="30" cy="30" r="2.6"/>
+      <path d="M6 6 C14 14, 22 22, 30 30"/>
+    </svg>
+    <div class="brand-text"><b>DocuGPT</b><span data-i18n="nav.brandTag">Guía funcional · Nybble Group</span></div>
+  </div>
 
-  <div class="grp">Producto</div>
-  <a href="index.html#resumen"><i>1</i>Resumen</a>
-  <a href="index.html#conceptos"><i>2</i>Conceptos clave</a>
-  <a href="index.html#roles"><i>3</i>Roles y permisos</a>
+  <div class="langtoggle" role="group" aria-label="Language / Idioma">
+    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+  </div>
 
-  <div class="grp">Comportamiento</div>
-  <a href="comportamiento.html#estados"><i>4</i>Ciclo de vida del documento</a>
-  <a href="comportamiento.html#planes"><i>5</i>Organización y planes</a>
-  <a href="comportamiento.html#conectores"><i>6</i>Conectores</a>
-  <a href="comportamiento.html#modulos"><i>7</i>Módulos de negocio</a>
+  <div class="grp" data-i18n="nav.grp.producto">Producto</div>
+  <a href="index.html#resumen"><i>1</i><span data-i18n="nav.link.resumen">Resumen</span></a>
+  <a href="index.html#conceptos"><i>2</i><span data-i18n="nav.link.conceptos">Conceptos clave</span></a>
+  <a href="index.html#roles"><i>3</i><span data-i18n="nav.link.roles">Roles y permisos</span></a>
 
-  <div class="grp is-here">Medición</div>
-  <a href="#metricas" class="is-here"><i>8</i>Métricas de impacto</a>
-  <a href="#tecnico"><i>9</i>Notas técnicas</a>
+  <div class="grp" data-i18n="nav.grp.comportamiento">Comportamiento</div>
+  <a href="comportamiento.html#estados"><i>4</i><span data-i18n="nav.link.estados">Ciclo de vida del documento</span></a>
+  <a href="comportamiento.html#planes"><i>5</i><span data-i18n="nav.link.planes">Organización y planes</span></a>
+  <a href="comportamiento.html#conectores"><i>6</i><span data-i18n="nav.link.conectores">Conectores</span></a>
+  <a href="comportamiento.html#modulos"><i>7</i><span data-i18n="nav.link.modulos">Módulos de negocio</span></a>
 
-  <div class="grp">Guías</div>
-  <a href="guia-owner.html"><i>★</i>Guía · Owner</a>
-  <a href="guia-user.html"><i>★</i>Guía · User</a>
+  <div class="grp is-here" data-i18n="nav.grp.medicion">Medición</div>
+  <a href="#metricas" class="is-here"><i>8</i><span data-i18n="nav.link.metricas">Métricas de impacto</span></a>
+  <a href="#tecnico"><i>9</i><span data-i18n="nav.link.tecnico">Notas técnicas</span></a>
+
+  <div class="grp" data-i18n="nav.grp.guias">Guías</div>
+  <a href="guia-owner.html"><i>★</i><span data-i18n="nav.link.guiaOwner">Guía · Owner</span></a>
+  <a href="guia-user.html"><i>★</i><span data-i18n="nav.link.guiaUser">Guía · User</span></a>
 </nav>
 
 <main>
 <header class="pagehead" style="--accent:var(--c-medicion)">
+  <div class="mesh">
+<svg viewBox="0 0 960 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--ink3)" stroke-width="1">
+<g stroke="var(--ink3)">
+<path d="M15.0 31.3 L105.0 44.0"/>
+<path d="M15.0 31.3 L60.0 87.7"/>
+<path d="M105.0 44.0 L195.0 38.9"/>
+<path d="M105.0 44.0 L150.0 91.1"/>
+<path d="M195.0 38.9 L285.0 46.1"/>
+<path d="M195.0 38.9 L240.0 98.9"/>
+<path d="M285.0 46.1 L375.0 49.0"/>
+<path d="M285.0 46.1 L330.0 85.0"/>
+<path d="M375.0 49.0 L465.0 33.0"/>
+<path d="M375.0 49.0 L420.0 78.4"/>
+<path d="M465.0 33.0 L555.0 30.9"/>
+<path d="M465.0 33.0 L510.0 79.2"/>
+<path d="M555.0 30.9 L645.0 28.0"/>
+<path d="M555.0 30.9 L600.0 63.1"/>
+<path d="M645.0 28.0 L735.0 11.5"/>
+<path d="M645.0 28.0 L690.0 59.9"/>
+<path d="M735.0 11.5 L825.0 14.4"/>
+<path d="M735.0 11.5 L780.0 68.5"/>
+<path d="M825.0 14.4 L915.0 20.3"/>
+<path d="M825.0 14.4 L870.0 62.8"/>
+<path d="M915.0 20.3 L960.0 70.4"/>
+<path d="M60.0 87.7 L150.0 91.1"/>
+<path d="M60.0 87.7 L15.0 146.7"/>
+<path d="M150.0 91.1 L240.0 98.9"/>
+<path d="M150.0 91.1 L105.0 141.2"/>
+<path d="M240.0 98.9 L330.0 85.0"/>
+<path d="M240.0 98.9 L195.0 133.1"/>
+<path d="M330.0 85.0 L420.0 78.4"/>
+<path d="M330.0 85.0 L285.0 136.9"/>
+<path d="M420.0 78.4 L510.0 79.2"/>
+<path d="M420.0 78.4 L375.0 123.0"/>
+<path d="M510.0 79.2 L600.0 63.1"/>
+<path d="M510.0 79.2 L465.0 111.4"/>
+<path d="M600.0 63.1 L690.0 59.9"/>
+<path d="M600.0 63.1 L555.0 116.8"/>
+<path d="M690.0 59.9 L780.0 68.5"/>
+<path d="M690.0 59.9 L645.0 109.4"/>
+<path d="M780.0 68.5 L870.0 62.8"/>
+<path d="M780.0 68.5 L735.0 107.9"/>
+<path d="M870.0 62.8 L960.0 70.4"/>
+<path d="M870.0 62.8 L825.0 124.2"/>
+<path d="M960.0 70.4 L915.0 125.7"/>
+<path d="M15.0 146.7 L105.0 141.2"/>
+<path d="M15.0 146.7 L60.0 181.6"/>
+<path d="M105.0 141.2 L195.0 133.1"/>
+<path d="M105.0 141.2 L150.0 185.3"/>
+<path d="M195.0 133.1 L285.0 136.9"/>
+<path d="M195.0 133.1 L240.0 176.4"/>
+<path d="M285.0 136.9 L375.0 123.0"/>
+<path d="M285.0 136.9 L330.0 160.4"/>
+<path d="M375.0 123.0 L465.0 111.4"/>
+<path d="M375.0 123.0 L420.0 164.1"/>
+<path d="M465.0 111.4 L555.0 116.8"/>
+<path d="M465.0 111.4 L510.0 160.3"/>
+<path d="M555.0 116.8 L645.0 109.4"/>
+<path d="M555.0 116.8 L600.0 153.6"/>
+<path d="M645.0 109.4 L735.0 107.9"/>
+<path d="M645.0 109.4 L690.0 168.3"/>
+<path d="M735.0 107.9 L825.0 124.2"/>
+<path d="M735.0 107.9 L780.0 174.2"/>
+<path d="M825.0 124.2 L915.0 125.7"/>
+<path d="M825.0 124.2 L870.0 173.9"/>
+<path d="M915.0 125.7 L960.0 190.1"/>
+<path d="M60.0 181.6 L150.0 185.3"/>
+<path d="M150.0 185.3 L240.0 176.4"/>
+<path d="M240.0 176.4 L330.0 160.4"/>
+<path d="M330.0 160.4 L420.0 164.1"/>
+<path d="M420.0 164.1 L510.0 160.3"/>
+<path d="M510.0 160.3 L600.0 153.6"/>
+<path d="M600.0 153.6 L690.0 168.3"/>
+<path d="M690.0 168.3 L780.0 174.2"/>
+<path d="M780.0 174.2 L870.0 173.9"/>
+<path d="M870.0 173.9 L960.0 190.1"/>
+</g>
+<g fill="var(--ink3)" stroke="none">
+<circle cx="15.0" cy="31.3" r="1.6"/>
+<circle cx="105.0" cy="44.0" r="1.6"/>
+<circle cx="195.0" cy="38.9" r="2.6"/>
+<circle cx="285.0" cy="46.1" r="1.6"/>
+<circle cx="375.0" cy="49.0" r="3.2"/>
+<circle cx="465.0" cy="33.0" r="1.6"/>
+<circle cx="555.0" cy="30.9" r="1.6"/>
+<circle cx="645.0" cy="28.0" r="1.6"/>
+<circle cx="735.0" cy="11.5" r="1.6"/>
+<circle cx="825.0" cy="14.4" r="1.6"/>
+<circle cx="915.0" cy="20.3" r="1.6"/>
+<circle cx="60.0" cy="87.7" r="1.6"/>
+<circle cx="150.0" cy="91.1" r="1.6"/>
+<circle cx="240.0" cy="98.9" r="1.6"/>
+<circle cx="330.0" cy="85.0" r="1.6"/>
+<circle cx="420.0" cy="78.4" r="1.6"/>
+<circle cx="510.0" cy="79.2" r="1.6"/>
+<circle cx="600.0" cy="63.1" r="3.2"/>
+<circle cx="690.0" cy="59.9" r="1.6"/>
+<circle cx="780.0" cy="68.5" r="2.6"/>
+<circle cx="870.0" cy="62.8" r="1.6"/>
+<circle cx="960.0" cy="70.4" r="1.6"/>
+<circle cx="15.0" cy="146.7" r="1.6"/>
+<circle cx="105.0" cy="141.2" r="1.6"/>
+<circle cx="195.0" cy="133.1" r="1.6"/>
+<circle cx="285.0" cy="136.9" r="1.6"/>
+<circle cx="375.0" cy="123.0" r="1.6"/>
+<circle cx="465.0" cy="111.4" r="1.6"/>
+<circle cx="555.0" cy="116.8" r="1.6"/>
+<circle cx="645.0" cy="109.4" r="1.6"/>
+<circle cx="735.0" cy="107.9" r="3.2"/>
+<circle cx="825.0" cy="124.2" r="1.6"/>
+<circle cx="915.0" cy="125.7" r="1.6"/>
+<circle cx="60.0" cy="181.6" r="1.6"/>
+<circle cx="150.0" cy="185.3" r="1.6"/>
+<circle cx="240.0" cy="176.4" r="1.6"/>
+<circle cx="330.0" cy="160.4" r="2.6"/>
+<circle cx="420.0" cy="164.1" r="1.6"/>
+<circle cx="510.0" cy="160.3" r="1.6"/>
+<circle cx="600.0" cy="153.6" r="1.6"/>
+<circle cx="690.0" cy="168.3" r="1.6"/>
+<circle cx="780.0" cy="174.2" r="1.6"/>
+<circle cx="870.0" cy="173.9" r="1.6"/>
+<circle cx="960.0" cy="190.1" r="3.2"/>
+</g>
+</svg>
+  </div>
   <div class="wrap">
-    <div class="crumb"><a href="index.html">DocuGPT</a> · Medición</div>
-    <h1>Medición</h1>
-    <p>Qué medimos hoy en los pilotos activos, qué indicadores permite medir el framework en cualquier proceso nuevo, y notas para equipos técnicos.</p>
+    <div class="crumb"><a href="index.html">DocuGPT</a> · <span data-i18n="ph.crumb">Medición</span></div>
+    <h1 data-i18n="ph.h1">Medición</h1>
+    <p data-i18n="ph.p">Qué medimos hoy en los pilotos activos, qué indicadores permite medir el framework en cualquier proceso nuevo, y notas para equipos técnicos.</p>
   </div>
 </header>
 
@@ -48,34 +186,34 @@
 
 <!-- ============ 8. MÉTRICAS DE IMPACTO ============ -->
 <section id="metricas" style="--accent:var(--c-medicion)">
-  <div class="shead"><div><h2>Métricas de impacto <span class="num">08</span></h2><p>Dos pilotos ya corriendo puertas adentro de Nybble Group, con números propios.</p></div></div>
+  <div class="shead"><div><h2><span data-i18n="metricas.h2">Métricas de impacto</span> <span class="num">08</span></h2><p data-i18n="metricas.p">Dos pilotos ya corriendo puertas adentro de Nybble Group, con números propios.</p></div></div>
   <div class="sbody">
 
     <div class="grid g2">
       <div class="stat">
         <div class="v">−89%</div>
-        <div class="k">Tiempo de procesamiento de facturas</div>
-        <div class="n">Antes: 18 h/mes · Después: 2 h/mes</div>
+        <div class="k" data-i18n="metricas.stat1.k">Tiempo de procesamiento de facturas</div>
+        <div class="n" data-i18n="metricas.stat1.n">Antes: 18 h/mes · Después: 2 h/mes</div>
       </div>
       <div class="stat">
         <div class="v">−87%</div>
-        <div class="k">Tiempo de preparación de CVs</div>
-        <div class="n">Antes: 7.5 h/mes · Después: 1 h/mes</div>
+        <div class="k" data-i18n="metricas.stat2.k">Tiempo de preparación de CVs</div>
+        <div class="n" data-i18n="metricas.stat2.n">Antes: 7.5 h/mes · Después: 1 h/mes</div>
       </div>
     </div>
 
-    <h3>Indicadores que el framework permite medir en cualquier proceso nuevo</h3>
+    <h3 data-i18n="metricas.h3">Indicadores que el framework permite medir en cualquier proceso nuevo</h3>
     <ul>
-      <li><strong>Volumen procesado por FTE</strong> — capacidad de procesamiento por persona, sin sumar headcount.</li>
-      <li><strong>Tiempo por documento</strong> — desde la recepción hasta el dato extraído (objetivo: −85% vs. proceso manual).</li>
-      <li><strong>Straight-through processing</strong> — % de documentos procesados sin intervención humana.</li>
-      <li><strong>Precisión de extracción</strong> — campo a campo contra validación humana (objetivo &gt;95%).</li>
-      <li><strong>Tasa de reproceso</strong> — documentos que requieren corrección por error de carga manual.</li>
-      <li><strong>Costo por documento</strong> — personas, infraestructura y tecnología combinados.</li>
-      <li><strong>Time-to-scale</strong> — tiempo para escalar capacidad en picos de demanda, sin contratar.</li>
-      <li><strong>ROI y payback</strong> — ahorro acumulado vs. inversión inicial de implementación y licencia.</li>
-      <li><strong>Cobertura de tipos de documento</strong> — nuevos tipos soportados sin desarrollo a medida.</li>
-      <li><strong>Satisfacción del usuario</strong> — de quienes dejaron la carga manual y hoy validan/supervisan.</li>
+      <li><strong data-i18n="kpi1.k">Volumen procesado por FTE</strong> <span data-i18n="kpi1.v"> — capacidad de procesamiento por persona, sin sumar headcount.</span></li>
+      <li><strong data-i18n="kpi2.k">Tiempo por documento</strong> <span data-i18n="kpi2.v"> — desde la recepción hasta el dato extraído (objetivo: −85% vs. proceso manual).</span></li>
+      <li><strong data-i18n="kpi3.k">Straight-through processing</strong> <span data-i18n="kpi3.v"> — % de documentos procesados sin intervención humana.</span></li>
+      <li><strong data-i18n="kpi4.k">Precisión de extracción</strong> <span data-i18n-html="kpi4.v"> — campo a campo contra validación humana (objetivo &gt;95%).</span></li>
+      <li><strong data-i18n="kpi5.k">Tasa de reproceso</strong> <span data-i18n="kpi5.v"> — documentos que requieren corrección por error de carga manual.</span></li>
+      <li><strong data-i18n="kpi6.k">Costo por documento</strong> <span data-i18n="kpi6.v"> — personas, infraestructura y tecnología combinados.</span></li>
+      <li><strong data-i18n="kpi7.k">Time-to-scale</strong> <span data-i18n="kpi7.v"> — tiempo para escalar capacidad en picos de demanda, sin contratar.</span></li>
+      <li><strong data-i18n="kpi8.k">ROI y payback</strong> <span data-i18n="kpi8.v"> — ahorro acumulado vs. inversión inicial de implementación y licencia.</span></li>
+      <li><strong data-i18n="kpi9.k">Cobertura de tipos de documento</strong> <span data-i18n="kpi9.v"> — nuevos tipos soportados sin desarrollo a medida.</span></li>
+      <li><strong data-i18n="kpi10.k">Satisfacción del usuario</strong> <span data-i18n="kpi10.v"> — de quienes dejaron la carga manual y hoy validan/supervisan.</span></li>
     </ul>
 
   </div>
@@ -83,14 +221,14 @@
 
 <!-- ============ 9. NOTAS TÉCNICAS ============ -->
 <section id="tecnico" style="--accent:var(--c-medicion)">
-  <div class="shead"><div><h2>Notas técnicas <span class="num">09</span></h2><p>Framework API-first, pensado para integrarse con otros servicios y con agentes de IA propios.</p></div></div>
+  <div class="shead"><div><h2><span data-i18n="tecnico.h2">Notas técnicas</span> <span class="num">09</span></h2><p data-i18n="tecnico.p">Framework API-first, pensado para integrarse con otros servicios y con agentes de IA propios.</p></div></div>
   <div class="sbody">
 
     <div class="grid g4">
-      <div class="card acc"><h5>Arquitectura</h5><p class="mini">Tres capas: API (Express), frontend (Next.js) y un SDK TypeScript autogenerado a partir de la API.</p></div>
-      <div class="card acc"><h5>Datos</h5><p class="mini">Persistencia en PostgreSQL vía Prisma, sobre infraestructura en ECS.</p></div>
-      <div class="card acc"><h5>Multi-tenant</h5><p class="mini">Entornos separados de desarrollo (-de) y producción por cada organización.</p></div>
-      <div class="card acc"><h5>OCR / IA</h5><p class="mini">Azure como motor por defecto; Gemini u otro LLM avanzado configurable para manuscritos.</p></div>
+      <div class="card acc"><h5 data-i18n="tec.arq.title">Arquitectura</h5><p class="mini" data-i18n="tec.arq.body">Tres capas: API (Express), frontend (Next.js) y un SDK TypeScript autogenerado a partir de la API.</p></div>
+      <div class="card acc"><h5 data-i18n="tec.datos.title">Datos</h5><p class="mini" data-i18n="tec.datos.body">Persistencia en PostgreSQL vía Prisma, sobre infraestructura en ECS.</p></div>
+      <div class="card acc"><h5>Multi-tenant</h5><p class="mini" data-i18n="tec.mt.body">Entornos separados de desarrollo (-de) y producción por cada organización.</p></div>
+      <div class="card acc"><h5>OCR / IA</h5><p class="mini" data-i18n="tec.ocr.body">Azure como motor por defecto; Gemini u otro LLM avanzado configurable para manuscritos.</p></div>
     </div>
 
   </div>
@@ -99,18 +237,65 @@
 </div><!-- /wrap -->
 
 <div class="pager">
-  <a class="prev" href="comportamiento.html#modulos"><span class="d">Anterior</span><span class="t">← Comportamiento</span></a>
-  <a class="next" href="index.html#resumen" style="text-align:right"><span class="d">Volver</span><span class="t">Producto →</span></a>
+  <a class="prev" href="comportamiento.html#modulos"><span class="d" data-i18n="pager.anterior">Anterior</span><span class="t" data-i18n="medicion.pager.prev">← Comportamiento</span></a>
+  <a class="next" href="index.html#resumen" style="text-align:right"><span class="d" data-i18n="pager.volver">Volver</span><span class="t" data-i18n="medicion.pager.next">Producto →</span></a>
 </div>
 
 <footer>
   <div class="wrap" style="padding:0">
-    <p>© Nybble Group 2026 — Confidencial y de uso interno. Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></p>
+    <p data-i18n-html="footer.full">© Nybble Group 2026 — Confidencial y de uso interno. Fuente: presentaciones de producto DocuGPT · <a href="https://www.nybblegroup.com" target="_blank" rel="noopener">nybblegroup.com</a></p>
   </div>
 </footer>
 
 </main>
 </div><!-- /shell -->
-<a class="toplink" href="#metricas">↑ Arriba</a>
+<a class="toplink" href="#metricas" data-i18n="toplink.top">↑ Arriba</a>
+
+<script src="assets/i18n.js"></script>
+<script>
+initI18n({
+  "page.title": { es: "DocuGPT · Medición", en: "DocuGPT · Measurement" },
+  "ph.crumb": { es: "Medición", en: "Measurement" },
+  "ph.h1": { es: "Medición", en: "Measurement" },
+  "ph.p": { es: "Qué medimos hoy en los pilotos activos, qué indicadores permite medir el framework en cualquier proceso nuevo, y notas para equipos técnicos.", en: "What we measure today across active pilots, what indicators the framework lets you track on any new process, and notes for technical teams." },
+  "metricas.h2": { es: "Métricas de impacto", en: "Impact Metrics" },
+  "metricas.p": { es: "Dos pilotos ya corriendo puertas adentro de Nybble Group, con números propios.", en: "Two pilots already running inside Nybble Group, with their own numbers." },
+  "metricas.stat1.k": { es: "Tiempo de procesamiento de facturas", en: "Invoice processing time" },
+  "metricas.stat1.n": { es: "Antes: 18 h/mes · Después: 2 h/mes", en: "Before: 18 h/month · After: 2 h/month" },
+  "metricas.stat2.k": { es: "Tiempo de preparación de CVs", en: "Résumé prep time" },
+  "metricas.stat2.n": { es: "Antes: 7.5 h/mes · Después: 1 h/mes", en: "Before: 7.5 h/month · After: 1 h/month" },
+  "metricas.h3": { es: "Indicadores que el framework permite medir en cualquier proceso nuevo", en: "Indicators the framework lets you measure on any new process" },
+  "kpi1.k": { es: "Volumen procesado por FTE", en: "Volume processed per FTE" },
+  "kpi1.v": { es: " — capacidad de procesamiento por persona, sin sumar headcount.", en: " — processing capacity per person, without adding headcount." },
+  "kpi2.k": { es: "Tiempo por documento", en: "Time per document" },
+  "kpi2.v": { es: " — desde la recepción hasta el dato extraído (objetivo: −85% vs. proceso manual).", en: " — from receipt to extracted data (target: −85% vs. manual process)." },
+  "kpi3.k": { es: "Straight-through processing", en: "Straight-through processing" },
+  "kpi3.v": { es: " — % de documentos procesados sin intervención humana.", en: " — % of documents processed without human intervention." },
+  "kpi4.k": { es: "Precisión de extracción", en: "Extraction accuracy" },
+  "kpi4.v": { es: " — campo a campo contra validación humana (objetivo &gt;95%).", en: " — field by field against human validation (target &gt;95%)." },
+  "kpi5.k": { es: "Tasa de reproceso", en: "Rework rate" },
+  "kpi5.v": { es: " — documentos que requieren corrección por error de carga manual.", en: " — documents that need correction due to manual-upload errors." },
+  "kpi6.k": { es: "Costo por documento", en: "Cost per document" },
+  "kpi6.v": { es: " — personas, infraestructura y tecnología combinados.", en: " — people, infrastructure, and technology combined." },
+  "kpi7.k": { es: "Time-to-scale", en: "Time-to-scale" },
+  "kpi7.v": { es: " — tiempo para escalar capacidad en picos de demanda, sin contratar.", en: " — time to scale capacity during demand peaks, without hiring." },
+  "kpi8.k": { es: "ROI y payback", en: "ROI & payback" },
+  "kpi8.v": { es: " — ahorro acumulado vs. inversión inicial de implementación y licencia.", en: " — accumulated savings vs. initial implementation and license investment." },
+  "kpi9.k": { es: "Cobertura de tipos de documento", en: "Document type coverage" },
+  "kpi9.v": { es: " — nuevos tipos soportados sin desarrollo a medida.", en: " — new types supported without custom development." },
+  "kpi10.k": { es: "Satisfacción del usuario", en: "User satisfaction" },
+  "kpi10.v": { es: " — de quienes dejaron la carga manual y hoy validan/supervisan.", en: " — from those who left manual entry behind and now validate/oversee." },
+  "tecnico.h2": { es: "Notas técnicas", en: "Technical Notes" },
+  "tecnico.p": { es: "Framework API-first, pensado para integrarse con otros servicios y con agentes de IA propios.", en: "API-first framework, designed to integrate with other services and with your own AI agents." },
+  "tec.arq.title": { es: "Arquitectura", en: "Architecture" },
+  "tec.arq.body": { es: "Tres capas: API (Express), frontend (Next.js) y un SDK TypeScript autogenerado a partir de la API.", en: "Three layers: API (Express), frontend (Next.js), and a TypeScript SDK auto-generated from the API." },
+  "tec.datos.title": { es: "Datos", en: "Data" },
+  "tec.datos.body": { es: "Persistencia en PostgreSQL vía Prisma, sobre infraestructura en ECS.", en: "PostgreSQL persistence via Prisma, running on ECS infrastructure." },
+  "tec.mt.body": { es: "Entornos separados de desarrollo (-de) y producción por cada organización.", en: "Separate development (-de) and production environments per organization." },
+  "tec.ocr.body": { es: "Azure como motor por defecto; Gemini u otro LLM avanzado configurable para manuscritos.", en: "Azure as the default engine; Gemini or another advanced LLM configurable for handwriting." },
+  "medicion.pager.prev": { es: "← Comportamiento", en: "← Behavior" },
+  "medicion.pager.next": { es: "Producto →", en: "Product →" }
+});
+</script>
 </body>
 </html>
