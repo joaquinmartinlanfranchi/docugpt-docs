@@ -17,11 +17,13 @@ assets/i18n.js         Motor de idioma ES/EN (toggle + persistencia)
 
 Cada `.html` es un documento standalone completo — no hay templating ni build step. El `<nav class="side">` está **duplicado verbatim en cada página**; la única diferencia entre copias es qué link/grupo lleva la clase `is-here`. Si agregás, quitás o renombrás una sección o página, hay que actualizar el bloque `<nav>` en **todos** los archivos `.html`, no solo en el que estás editando.
 
-Fuente del contenido: presentaciones de producto DocuGPT. No hay todavía un tracker (Jira/Confluence) del cual citar tickets por claim — cuando exista, conviene sumar una página de "Límites conocidos" en `medicion.html` con esas fuentes.
+Fuente del contenido: presentaciones de producto DocuGPT, más una demo en vivo del 2026-09-04 (transcripción linkeada en los `<a class="tag">` que dice "Demo 2026-09-04" — buscar ese texto para encontrar los claims que vienen de ahí). No hay todavía un tracker (Jira/Confluence) del cual citar tickets por claim — cuando exista, conviene sumar una página de "Límites conocidos" en `medicion.html` con esas fuentes.
 
 ## Identidad visual
 
 Paleta, tipografía (Montserrat + Sora) y componentes (botones, tags, fondo "mesh" de red conectada) siguen el **Nybble Brandbook 2026**. Tokens de color en `assets/style.css` (`:root` para modo claro, `@media (prefers-color-scheme: dark)` para oscuro — no hay toggle manual, sigue la preferencia del sistema/navegador de quien mira la página). Reglas de accesibilidad del brandbook respetadas: nunca texto naranja o azul sobre fondos Gray/Dark Blue — esos colores se usan como texto solo sobre superficies claras o como fill/acento decorativo.
+
+El logo (`.ng-logo`) es el real de Nybble Group (`ng-logo-vert-color-200.svg`), no una aproximación: el ícono de puntos (clases `lg-1`…`lg-4`, ver `assets/style.css`) se usa en el sidebar de cada página, y el lockup completo (ícono + wordmark "nybble group") en el footer. Los colores de `lg-3`/`lg-4` (los grises) se reclarean en modo oscuro para mantener contraste; en el sidebar (siempre navy oscuro, sea cual sea el tema de la página) se fuerzan a blanco con opacidad. Si el brandbook cambia de logo, reemplazar los 16 `<path>` dentro de cada `<svg class="ng-logo...">` — están duplicados en las 5 páginas (ícono) y las 5 páginas (lockup del footer), así que hay que actualizar los 10 lugares.
 
 ## Idioma (ES/EN)
 

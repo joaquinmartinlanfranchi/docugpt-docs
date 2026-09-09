@@ -55,16 +55,23 @@ a{color:var(--brand-text);text-decoration-thickness:1.5px}
 a:hover{color:var(--brand-text-hover)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--brand-fill);outline-offset:2px;border-radius:4px}
 
-/* ---------- LOGO MARK (icono de puntos Nybble) ---------- */
-.nybble-mark{display:inline-block;vertical-align:middle;flex:none}
-.nybble-mark circle{fill:var(--ink3)}
-.nybble-mark circle:nth-child(3){fill:var(--brand-dot)}
-.nybble-mark circle:nth-child(7){fill:var(--info)}
-.nybble-mark path{stroke:var(--ink3);stroke-width:2.2;fill:none;stroke-linecap:round}
-nav.side .nybble-mark circle{fill:#fff;opacity:.55}
-nav.side .nybble-mark circle:nth-child(3){fill:var(--brand-dot);opacity:1}
-nav.side .nybble-mark circle:nth-child(7){fill:#fff;opacity:.9}
-nav.side .nybble-mark path{stroke:#fff;opacity:.4}
+/* ---------- LOGO MARK (logo real Nybble Group — ng-logo-vert-color-200.svg) ---------- */
+.ng-logo{display:inline-block;vertical-align:middle;flex:none}
+.ng-logo .lg-1{fill:#F26E24}
+.ng-logo .lg-2{fill:#2A88C1}
+.ng-logo .lg-3{fill:#C0BFBF}
+.ng-logo .lg-4{fill:#6E767D}
+@media (prefers-color-scheme: dark){
+  .ng-logo .lg-3{fill:#8FA3AD}
+  .ng-logo .lg-4{fill:#C7D6DE}
+}
+/* el sidebar es siempre navy oscuro (ver nav.side), independiente del tema de la página */
+nav.side .ng-logo .lg-3{fill:#fff;opacity:.55}
+nav.side .ng-logo .lg-4{fill:#fff;opacity:.4}
+nav.side .ng-logo .lg-1{opacity:1}
+nav.side .ng-logo .lg-2{opacity:.95}
+.ng-logo-full{height:34px;width:auto}
+footer .brandmark{display:flex;align-items:center;gap:16px;margin-bottom:10px}
 
 /* ---------- MESH BACKGROUND (red conectada, marca Nybble) ---------- */
 .mesh{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:var(--mesh-opacity)}
